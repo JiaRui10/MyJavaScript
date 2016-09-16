@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<img id="img1" src="images/img1/4.jpg" alt="">
+    	<script>
+    		// 2
+    		var oImg = document.getElementById("img1");
+    		oImg.onclick = function(){
+    			// alert(oImg.src);
+    			// 3、运行。会出现一大串字符：图片的绝对路径
+
+    			if(oImg.src == "images/img1/4.jpg"){
+    				oImg.src = "images/img1/3.jpg";
+    			}
+    			// 4、运行。会发现执行并不成功，应该判断绝对路径才行
+
+    			// 5、【所有的相对路径 都别拿来做判断！！！】
+    			// img src
+    			// href="1.css" href="html/index.html"
+    			// img src="http://www.baidu.com/" →  这个可以拿来判断
+    			// 颜色值的写法有多种，也不要拿来判断
+    			// color: red #f00 rgb(250,0,0)
+    			// innerHTML值也别拿来判断
+    			
+    		};
+    	</script>
+    </body>
+</html>

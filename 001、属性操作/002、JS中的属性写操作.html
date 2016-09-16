@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input id="text1" type="text">
+    	<input id="btn1" type="button" value="按钮">
+
+    	<!-- 4、读写操作的结合 -->
+        <br>
+        <img id="img1" src="images/img1/1.jpg" alt="" width="300">
+
+        <!-- 7、获取元素里面的东西：innerHTML（读取元素内的所有HTML内容【文本节点】） -->
+        <p id="p1">这是一段文字...</p>
+
+    	<script>
+    		// 1、属性的写操作：元素.属性名 = 新的值。【替换、修改】
+    		window.onload = function(){
+    			var oBtn = document.getElementById("btn1");
+    			var oText = document.getElementById("text1");
+
+                // 5、
+                var oImg = document.getElementById("img1");
+
+                // 8、
+                var oP = document.getElementById("p1");
+
+    			oBtn.onclick = function(){
+    				// 2
+                    // oBtn.value = "button";
+                    // 3、修改
+                    // oText.value = "小庄";
+
+                    // 6
+                    // oImg.src = oText.value;
+
+
+                    // 9
+                    // alert(oP.innerHTML);
+                    // 10、修改
+                    // oP.innerHTML = 新的值
+                    oP.innerHTML = oText.value;
+                    oText.value = "";
+                    // 11、注意：如果输入<img src="images/img1/1.jpg"/>
+                    // 其实就是往里面写内容
+    			}
+    		};
+    	</script>
+    </body>
+</html>

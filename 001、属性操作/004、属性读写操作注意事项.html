@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input id="btn1" type="button" value="-">
+    	<input id="btn2" type="button" value="+">
+    	<p id="p1" style="font-size:15px;">
+    		1996年夏天，湖人得到“大鲨鱼”沙奎尔·奥尼尔，并与夏洛特黄蜂队交易得到新秀科比·布莱恩特，两人带领湖人队在1999-2002年间取得了三连冠。2007年，保罗·加索尔加入湖人队，球队又于2008-2010年三度进入总决赛并2次夺冠。但是伤病开始袭击湖人，导致球队不得不进入重建时期。
+    	</p>
+
+    	<script>
+    		window.onload = function(){
+    			var oBtn1 = document.getElementById("btn1");
+    			var oBtn2 = document.getElementById("btn2");
+    			var oP = document.getElementById("p1");
+    			// 1
+    			var num = 15;
+    			oBtn2.onclick = function(){
+    				// 2
+    				// num += 1;
+    				num++;   //每次递增1个数
+    				//注意：【JS操作属性名时不允许出现“-”，必须去掉】
+    				oP.style.fontSize = num + "px";
+    			};
+    			oBtn1.onclick = function(){
+    				num--;
+    				oP.style.fontSize = num + "px";
+    			};
+    		};
+    	</script>
+    </body>
+</html>

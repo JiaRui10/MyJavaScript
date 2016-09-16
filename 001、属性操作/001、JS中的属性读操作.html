@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input id="text1" type="text">
+    	<input id="btn1" type="button" value="按钮">
+
+    	<select name="" id="select">
+    		<option value="北京">北京</option>
+    		<option value="上海">上海</option>
+    		<option value="杭州">杭州</option>
+    	</select>
+    	<script>
+    		// 1、html属性操作：读、写
+    		// id、type、value → 属性名
+    		// btn1、button、按钮 →  属性值
+
+    		// 2、属性的读操作：元素.属性名
+    		window.onload = function(){
+    			var oBtn = document.getElementById("btn1");
+    			var oText = document.getElementById("text1");
+    			var oSelect = document.getElementById("select");
+
+    			oBtn.onclick = function(){
+    				/*alert(oText.value);*/   /*获取文本框中的值*/
+    				// alert(oSelect.value);
+
+    				// 3、字符串连接
+    				alert(oText.value + "在" + oSelect.value);
+    			}
+    		};
+    	</script>
+    </body>
+</html>

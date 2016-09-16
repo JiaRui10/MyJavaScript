@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input id="inp1" type="button">
+    	<script>
+    		var olnp = document.getElementById("inp1");
+    		olnp.onclick = function(){
+    			olnp.type = "checkbox";
+    			// 1、运行。点击之后可以改变表单元素的类型
+    			// IE6 IE7 IE8兼容不了
+
+    			// 2、为了兼容，可以换种思路：切换两个元素的隐藏与显示
+
+    			// 3、注意事项：改变某个元素的浮动值。（为了兼容，应该写成如下）
+    			// oDiv.style.float = "left";
+    			// oDiv.style.styleFloat = "left";  //兼容IE
+    			// oDiv.style.cssFloat = "left";   //兼容非IE
+
+    		};
+    	</script>
+    </body>
+</html>

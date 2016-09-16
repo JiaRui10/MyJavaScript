@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+    /*5*/
+    .red {
+        width: 300px;
+        background: red;
+        padding: 20px;
+        color: yellow;
+        border: 10px solid #ccc;
+    }
+</style>
+</head>
+    <body>
+    	<input id="btn1" type="button" value="-">
+    	<input id="btn2" type="button" value="+">
+
+        <!-- 1 -->
+        <input id="btn3" type="button" value="红">
+        <input id="btn4" type="button" value="黄">
+
+    	<p id="p1" style="font-size:15px;">
+    		1996年夏天，湖人得到“大鲨鱼”沙奎尔·奥尼尔，并与夏洛特黄蜂队交易得到新秀科比·布莱恩特，两人带领湖人队在1999-2002年间取得了三连冠。2007年，保罗·加索尔加入湖人队，球队又于2008-2010年三度进入总决赛并2次夺冠。但是伤病开始袭击湖人，导致球队不得不进入重建时期。
+    	</p>
+
+    	<script>
+    		window.onload = function(){
+    			var oBtn1 = document.getElementById("btn1");
+    			var oBtn2 = document.getElementById("btn2");
+                // 2
+                var oBtn3 = document.getElementById("btn3");
+
+    			var oP = document.getElementById("p1");
+    			var num = 15;
+    			oBtn2.onclick = function(){
+    				num++;   //每次递增1个数
+    				oP.style.fontSize = num + "px";
+    			};
+    			oBtn1.onclick = function(){
+    				num--;
+    				oP.style.fontSize = num + "px";
+    			};
+
+                // 3
+                oBtn3.onclick = function(){
+                    // oP.style.width = "300px";
+                    // oP.style.background = "red";
+                    // oP.style.padding = "20px";
+                    // oP.style.color = "yellow";
+                    // oP.style.border = "10px solid #ccc";
+                    
+                    // 4、注意事项：【如果操作的样式太多，可将其放到一个样式表里】
+                    // 【所以可以换种思路，先写好样式表，再给p的class属性加上样式表】
+                    // 还有注意class是保留字。【class  →  className】
+                    oP.className = "red";
+                };
+    		};
+    	</script>
+    </body>
+</html>

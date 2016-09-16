@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<img id="img1" src="images/img1/1.jpg" alt="">
+    	<!-- 1、注意前面说过了，图片的src不能来做判断条件 -->
+    	<script>
+    		var oImg = document.getElementById("img1");
+    		// 2、没有条件，创造条件
+    		var onOff = true;
+    		oImg.onclick = function(){
+    			if(onOff){
+    				oImg.src = "images/img1/3.jpg";
+    				onOff = false;
+    			}else{
+    				oImg.src = "images/img1/1.jpg";
+    				onOff = true;
+    			}
+    		};
+    	</script>
+    </body>
+</html>

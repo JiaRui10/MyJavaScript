@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		border: 1px solid red;
+	}
+</style>
+</head>
+    <body>
+    	请输入属性名称：<input id="attr" type="text"><br>
+    	请输入属性值：<input id="val" type="text">
+    	<input id="btn1" type="button" value="确定">
+    	<div id="div1"></div>
+    	<script>
+    		window.onload = function(){
+    			var oAttr = document.getElementById("attr");
+    			var oVal = document.getElementById("val");
+    			var oBtn = document.getElementById("btn1");
+    			var oDiv = document.getElementById("div1");
+    			oBtn.onclick = function(){
+    				//oDiv.style.width = oVal.value;  //.后面的值无法修改
+    				oDiv.style[oAttr.value] = oVal.value;  //中括号里面的值可以随便变
+    				// 运行。分别输入：width  345px
+    				//注意横杠的属性：margin-left  →  marginLeft
+
+    				// 总结：【当你发现某个值有可能变化的时候，都可以用中括号】
+    				// JS中允许把"."替换成"[]"。
+    					// 如：btn.onclick  →  btn["onclick"]
+    					// document.getElementById("attr") →  document["getElementById"]("attr")
+    			};
+    		};
+    	</script>
+    </body>
+</html>
