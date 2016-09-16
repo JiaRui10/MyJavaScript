@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2、样式*/
+    li {
+        list-style: none;
+    }
+    .lis {
+        width: 80px;
+        height: 30px;
+        border: 1px solid #333;
+
+        position: relative;
+    }
+    .lis a {
+        display: block;
+        line-height: 30px;
+        text-align: center;  /*字体居中*/
+        text-decoration: none;
+        color: #000;
+        background: #f1f1f1;
+    }
+    ul ul {
+        padding: 0;
+        margin: 0;
+        width: 140px;
+        border: 1px solid #333;
+
+        /*如果想让这个ul一直跟在【微博】底下走，那它应该是一个定位。相对于它的父级定位。【父级用相对定位，子级用绝对定位】*/
+        position: absolute;
+        top: 30px;
+        left: -1px;   /*因为父级有1px的边框*/
+
+        background: #FF9;
+
+        /*4*/
+        display: none;
+    }
+    ul ul li {
+        text-align: center;   /*让ul里面的li居中*/
+        line-height: 30px;
+    }
+
+    /*3、如何把某个元素移除你的视线：
+    a、display:none;         显示为无。不占文档流
+    b、visibility:hidden;    让元素隐藏。实际上还占用文档流
+    c、width \ height
+    d、透明度
+    e、left \ top
+    f、拿一个白色div盖住它
+    g、margin负值
+    */
+
+</style>
+</head>
+    <body>
+    	<!-- 1、布局 -->
+    	<ul>
+            <!-- 10、添加一个id -->
+    		<li  id="lis" class="lis">
+                <!-- 7、添加两个id -->
+    			<a href="#" id="link">微博</a>
+    			<ul id="ul1">
+    				<li>私信</li>
+    				<li>评论</li>
+    				<li>@我</li>
+    			</ul>
+    		</li>
+    	</ul>
+
+        <!-- 5 -->
+        <script>
+            // 6、通过id名称获取元素（a标签）和ul1
+            var a = document.getElementById("link");
+            var ul1 = document.getElementById("ul1");
+            // 11、获取a的父级li元素
+            var lis = document.getElementById("lis");
+            // 7、事件
+            // 鼠标事件、键盘事件、系统事件、表单事件、自定义事件。
+            // 鼠标的事件：
+            //     onclick         点击
+            //     onmouseover     移入
+            //     onmouseout      移开
+            //     onmousemove     鼠标的抚摸事件
+            //     onmousedowm     按下
+            //     onmouseup       抬起
+            //     ...
+
+            // 8、如何添加事件：元素.onmouseover = 函数名
+            // **** 函数：function 名字(){}   //函数不会主动执行
+            // ****a、直接调用：abc();
+            //     b、事件调用：元素.事件 = 函数名
+            //     ...
+            // 9、测试：alert("ok");
+            // 【移入事件】
+            // a.onmouseover = show;
+            // 12、注释掉上面的代码，添加li的事件
+            lis.onmouseover = show;
+            function show(){
+                ul1.style.display = "block";
+                // 改变a链接的背景
+                a.style.background = "yellow";
+            }
+
+            // 【移开事件】
+            // a.onmouseout = hide;
+            // 13
+            lis.onmouseout = hide;
+            function hide(){
+                ul1.style.display = "none";
+                a.style.background = "#f1f1f1";
+            }
+            // 运行。这是a链接移入、移开事件可以正常使用，但下面的li没办法点击。所以最好给a链接的父级li添加移入移除事件
+        </script>
+    </body>
+</html>
