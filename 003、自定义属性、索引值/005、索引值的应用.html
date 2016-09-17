@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="button" value="btn1">
+    	<input type="button" value="btn2">
+    	<input type="button" value="btn3">
+    	<script>
+    		window.onload = function(){
+    			var aBtn = document.getElementsByTagName("input");
+
+                // 2、数组
+                var arr = ["莫莫","张三","李四"];
+
+    			for(var i=0;i<aBtn.length;i++){
+    				// 1、添加自定义属性。【添加索引值】
+                    // 【想建立"匹配""对应"关系，就用索引值】
+    				aBtn[i].index = i;
+    				aBtn[i].onclick = function(){
+                        // 3、匹配数组
+                        // alert(arr[this.index]);
+                        this.value = arr[this.index];
+    				};
+    			}
+    		};
+    	</script>
+    </body>
+</html>

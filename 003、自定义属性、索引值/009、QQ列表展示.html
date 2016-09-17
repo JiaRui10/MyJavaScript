@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	ul,h2 {
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		list-style: none;
+	}
+	#list {
+		width: 240px;
+		border: 1px solid #333;
+		margin: 0 auto;
+	}
+	#list .lis {
+
+	}
+	#list h2 {
+		height: 30px;
+		line-height: 30px;
+		text-indent: 20px;
+		background: url(images/img1/ico1.gif) no-repeat 5px center #6FF;
+		color: #000;
+	}
+	#list ul {
+		/*5、将ul给收起来*/
+		display: none;
+	}
+	#list ul li {
+		line-height: 24px;
+		border-bottom:  1px solid #333;
+		text-indent: 24px;
+	}
+
+	/*4*/
+	#list .active {
+		background: url(images/img1/ico2.gif) no-repeat 5px center #FF9;
+		color: #000;
+	}
+
+	/*12*/
+	#list ul .hover {
+		background: #6FF;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<ul id="list">
+    		<li class="lis">
+    			<!-- 3 -->
+    			<!-- 箭头朝下，单独加一个class -->
+    			<!-- <h2 class="active">我的好友</h2> -->
+    			<h2>我的好友</h2>
+    			<ul>
+    				<li>张三</li>
+    				<li>张三</li>
+    				<li>张三</li>
+    				<li>张三</li>
+    			</ul>
+    		</li>
+    		<li class="lis">
+    			<h2>我的企业好友</h2>
+    			<ul>
+    				<li>小庄</li>
+    				<li>小庄</li>
+    				<li>小庄</li>
+    				<li>小庄</li>
+    			</ul>
+    		</li>
+    		<li class="lis">
+    			<h2>黑名单</h2>
+    			<ul>
+    				<li>哈哈</li>
+    				<li>哈哈</li>
+    				<li>哈哈</li>
+    			</ul>
+    		</li>
+    	</ul>
+
+    	<!-- 6、开始写JS -->
+    	<script>
+    		window.onload = function(){
+    			var oUl = document.getElementById("list");
+    			var aH2 = oUl.getElementsByTagName("h2");
+    			var aUl = oUl.getElementsByTagName("ul");
+
+    			for(var i=0;i<aH2.length;i++){
+    				// 7、添加索引值
+    				aH2[i].index = i;
+    				// 8、添加点击动作。点完之后，要得到想要的ul
+    				aH2[i].onclick = function(){
+    					// aUl[this.index].style.display = "block";
+    					// this.className = "active";
+
+    					// 这里有className这个现成条件可以使用，所以不需要用自定义属性也可以
+    					if(this.className == ""){
+    						aUl[this.index].style.display = "block";
+    						this.className = "active";
+    					}else{
+    						aUl[this.index].style.display = "none";
+    						this.className = "";
+    					}
+    				};
+    			}
+
+    			// 9、添加高亮，先找到里面的三个ul，再找li
+    			var aLi = null;
+    			var arrLi = [];
+    			for(var i=0;i<aUl.length;i++){
+    				aLi = aUl[i].getElementsByTagName("li");
+    				for(var j=0;j<aLi.length;j++){
+    					arrLi.push(aLi[j]);  //将元素添加到数组中
+    				}
+    			}
+    			// 10、给每个li添加一个点击事件
+    			for(var i=0;i<arrLi.length;i++){
+    				// 11、准备一个样式表hover。
+    				// 点中了哪个li，就给它加一个class就好了
+    				// 13、
+    				arrLi[i].onclick = function(){
+    					// this.className = "hover";
+    					// 14、将上一个的高亮去掉
+    					for(var i=0;i<arrLi.length;i++){
+    						arrLi[i].className = "";
+    					}
+    					this.className = "hover";
+    				};
+    			}
+    		};
+    	</script>
+    </body>
+</html>

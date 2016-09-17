@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2、写样式*/
+	body {
+		background: #333;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		list-style: none;
+	}
+	#pic {
+		width: 400px;
+		height: 500px;
+		position: relative;
+		margin: 0 auto;
+
+		/*设置图片未加载出来的默认图片*/
+		background: url(images/img1/loader_ico.gif) no-repeat center #fff;
+	}
+	#pic img {
+		width: 400px;
+		height: 500px;
+	}
+	#pic ul {
+		width: 40px;
+		position: absolute;
+		top: 0;
+		right: -50px;
+	}
+	#pic li {
+		width: 40px;
+		height: 40px;
+		margin-bottom: 4px;
+		background: #666;
+	}
+	/*当你点击下去的样式*/
+	#pic .active {
+		background: #FC3;
+	}
+
+	/*4、*/
+	#pic p,#pic span {
+		width: 400px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		color: #fff;
+		position: absolute;
+		left: 0;
+		background: #333;
+	}
+	#pic span {
+		top: 0;
+	}
+	#pic p {
+		bottom: 0;
+		margin: 0;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1、点击哪个li，图片就换到哪一张 -->
+    	<div id="pic">
+    		<img src="">
+    		<!-- 3、span用于生成页码。p用于图片的文字说明 -->
+    		<span>数量正在加载中......</span>
+    		<p>文字说明正在加载中......</p>
+    		<ul></ul>   <!-- 因为不知道图片有多少张，所以这里li的个数也不知道 -->
+
+    		<!-- 5、布局和css已经写完，开始写JS -->
+    		<script>
+    			window.onload = function(){
+    				var arrUrl = ["images/img1/1.png","images/img1/2.png","images/img1/3.png","images/img1/4.png",];
+    				var arrText = ["一只鹰","No.2","No.3","面具"];
+
+    				// 10、记录上一个li
+    				var oldLi = null;
+
+    				var oDiv = document.getElementById("pic");
+    				var oImg = oDiv.getElementsByTagName("img")[0];
+    				var oSpan = oDiv.getElementsByTagName("span")[0];
+    				var oP = oDiv.getElementsByTagName("p")[0];
+    				var oUl = oDiv.getElementsByTagName("ul")[0];
+    				var aLi = oUl.getElementsByTagName("li");
+
+    				var num = 0;
+    				// 6、初始化
+    				//初始化li
+    				for(var i=0;i<arrUrl.length;i++){
+    					oUl.innerHTML += '<li></li>';
+    				}
+    				// 11、刚运行时，等于li的第0个
+    				oldLi = aLi[num];
+
+    				oImg.src = arrUrl[num];
+    				oSpan.innerHTML = (num+1)+" / "+ arrUrl.length;
+    				oP.innerHTML = arrText[num];
+    				
+    				aLi[num].className="active";
+
+    				// 7、给li添加点击事件
+    				for(var i=0;i<aLi.length;i++){
+    					// 8、自定义属性，索引值
+    					aLi[i].index = i;
+    					aLi[i].onclick = function(){
+    						// alert(this.index);
+    						oImg.src = arrUrl[this.index];
+    						oP.innerHTML = arrText[this.index];
+    						oSpan.innerHTML = (this.index+1) +" / "+arrUrl.length;
+
+    						// 9、让颜色跟着选择变动
+    						// 思路a、不管你点击哪个，先全部清空。再给当前添加
+    						// for(var i=0;i<aLi.length;i++){
+    						// 	aLi[i].className = "";
+    						// }
+    						// this.className = "active";
+    						// 思路b、清空上一个，当前添加
+    						oldLi.className = "";
+    						oldLi = this;  //把当前的li变成"上一个li"
+    						aLi[this.index].className = "active";
+    					};
+    				}
+    			};
+    		</script>
+    	</div>
+    </body>
+</html>
