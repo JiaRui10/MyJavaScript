@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<!-- 1、 -->
+    	<input type="button" value="按钮1">
+    	<input type="button" value="按钮2">
+    	<input type="button" value="按钮3">
+    	<!-- 2 -->
+    	<script>
+    		window.onload = function(){
+    			var aBtn = document.getElementsByTagName("input");
+    			// 5
+    			that = null;
+    			for(var i=0;i<aBtn.length;i++){
+    				// 3
+    				// aBtn[i].onclick = function(){
+    				// 	// this.style.background = "yellow";
+    				// 	// 6
+    				// 	that = this;
+    				// 	fn1();
+    				// };
+
+    				// 8
+    				aBtn[i].onclick = fn1;
+    			}
+    			// 4
+    			function fn1(){
+    				// 7
+    				// that.style.background = "red";
+
+    				// 9
+    				this.style.background = "gray";
+    			}
+    		};
+    	</script>
+    </body>
+</html>

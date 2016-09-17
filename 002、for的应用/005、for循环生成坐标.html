@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*1*/
+	div {
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		font-size: 30px;
+		text-align: center;
+		line-height: 50px;
+		color: #fff;
+	}
+</style>
+</head>
+    <body>
+    	<script>
+    		window.onload = function(){
+    			var aDiv = document.getElementsByTagName("div");
+
+    			var s = "";
+    			for(var i=0;i<10;i++){
+    				s += "<div>"+i+"</div>";
+    			}
+    			document.body.innerHTML = s;
+
+    			// 让div一个一个的往后排开。给元素添加动态坐标
+    			for(var i=0;i<aDiv.length;i++){
+    				aDiv[i].style.left = 10+i*60+"px";
+    			}
+    		};
+    		//逢10换一行（小练习）
+    		//V字形（小练习）
+    	</script>
+    </body>
+</html>

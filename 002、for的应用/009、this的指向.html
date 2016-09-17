@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<!-- 4、添加一个按钮 -->
+    	<input type="button" value="按钮" id="btn1">
+    	<script>
+    		// 1、this：这个。指的是调用当前方法（函数）的那个对象
+    		//alert(this);  //object window
+    		//window是JS中的“老大”
+
+    		// 2、这里的this指的是window
+    		// window.alert(this);
+
+    		// 3、
+    		function fn1(){
+    			alert(this);
+    		}
+    		fn1();
+    		window.fn1();   //实际上就是window让它执行的
+
+    		// 5、添加按钮的点击事件
+    		var oBtn = document.getElementById("btn1");
+    		//oBtn.onclick = fn1;   //这时里面的this指按钮本身
+
+    		// 6、按钮的点击事件为一个匿名函数时，这时this不再指按钮本身，而是window
+    		oBtn.onclick = function(){
+    			//this：只指大括号范围内
+    			fn1();
+    		};
+
+    		// 7、总结
+    		// function fn1(){ this }
+    		// fn1();   this →  window
+    		// oDiv.onclick=fn1;  this → oDiv
+    		// oDiv.onclick = function(){ fn1(); };  fn1()里的this → window
+    		// <div onclick="fn1();"></div>   fn1()里的this →  window
+    		// 【直接fn1();这样调用，基本都指window】
+    	</script>
+    </body>
+</html>

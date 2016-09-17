@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	div {
+		width: 100px;
+		height: 100px;
+		border: 1px solid #333;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<div id="div1"></div>
+
+    	<script>
+    		var oDiv = document.getElementById("div1");
+    		oDiv.onclick = function(){
+    			// 3、点击之后让其宽变成200px。两种方法
+    			// a
+    			// oDiv.style.width = "200px";
+    			// b、下面这个方法没有任何兼容性问题。而且它是针对行间样式，不会对样式表产生影响。
+    			oDiv.style.cssText = "width:200px;height:200px;";
+    		};
+    	</script>
+    </body>
+</html>

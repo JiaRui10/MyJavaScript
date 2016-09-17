@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="list">
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    	</ul>
+
+    	<!-- 3、 -->
+    	<ol>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    	</ol>
+    	<!-- 4、这时有两个元素拥有li，所以要想清楚getElementsByTagName前面应该加什么 -->
+    	<script>
+    		// 1、
+    		// document.getElementById("list");   //静态方法，因为前面只能跟一个document
+    		// document.getElementsByTagName("li");  //动态方法。返回元素的集合
+    		window.onload = function(){
+    			// var oUI = document.getElementById("list");  通过id
+    			var oUI = document.getElementsByTagName("ul")[0];
+    			var aLi = oUI.getElementsByTagName("li");
+    			// 2、获取元素个数
+    			// alert(aLi.length);
+
+    		};
+    	</script>
+    </body>
+</html>

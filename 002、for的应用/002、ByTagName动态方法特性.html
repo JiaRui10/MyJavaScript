@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		window.onload = function(){
+    			// 1、如果页面上只有一个该元素，可直接...
+    			// document.title=123;
+    			// document.body.innerHTML = "abc";
+
+    			// 2、动态的体现
+    			var aBtn = document.getElementsByTagName("input");
+    			alert(aBtn.length);
+    			document.body.innerHTML='<input type="button" value="按钮"/><input type="button" value="按钮"/><input type="button" value="按钮"/>';   //注意因为里面是双引号，所以外面要用单引号包住
+    			alert(aBtn.length);
+
+    			aBtn[0].onclick=function(){
+    				alert(1);
+    			};
+    		};
+    	</script>
+    </body>
+</html>

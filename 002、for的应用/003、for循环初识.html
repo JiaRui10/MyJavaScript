@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+    li {
+        height: 30px;
+        border-bottom: 1px solid #333;
+    }
+</style>
+</head>
+    <body>
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    	<script>
+    		window.onload = function(){
+                var oUI = document.getElementById("list");
+                var aLi = oUI.getElementsByTagName("li");  //一堆元素，命名可以前面加a
+
+                // 3
+                var arr = ["今天","明天","后天"];
+
+                // 1、给每个li都添加点击事件
+                for(var i=0;i<aLi.length;i++){
+                    // 4
+                    aLi[i].innerHTML = arr[i];
+
+                    // 2
+                    aLi[i].onclick = function(){
+                        alert(i);   //在里面访问i，会发现弹出来的都是3，这跟作用域有关
+                    };
+                }
+            };
+    	</script>
+    </body>
+</html>

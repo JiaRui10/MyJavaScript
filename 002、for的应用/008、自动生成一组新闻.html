@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input id="btn1" type="button" value="自动生成5条新闻">
+    	<ul id="list"></ul>
+
+    	<script>
+    		window.onload = function(){
+    			// 1、根据这5条新闻来生成5个li，然后放进去
+    			var arr = ["河北警方通报路虎爆炸事件：事故由爆胎引发",
+						"菲律宾外长要求美方尊重：不是美国永远的小弟",
+						"长春中秋夜遭大风袭击 一吨重彩钢房被卷走(图)",
+						"深圳交警发图醉驾者的中秋夜 网友称好笑又心酸"];
+				var oBtn = document.getElementById("btn1");
+				var oUl = document.getElementById("list");
+
+				// 5、方法c
+				var onOff = true;
+
+				oBtn.onclick = function(){
+					// 3、方法a
+					// oBtn.disabled = true;
+					// 4、方法b
+					// oUl.innerHTML = "";
+
+					// 6、
+					if(onOff){
+						for(var i=0;i<arr.length;i++){
+							oUl.innerHTML += '<li>' + arr[i] + '</li>';
+						}
+						onOff = false;
+					}
+				};
+				// 2、运行。每次点击都会产生5条新闻。
+				// 解决思路：
+				// 方法a、点击一次之后用disable将按钮屏蔽。但这种方法体验不是很好
+				// 方法b、先清空，再生成。缺陷是性能不好
+				// 方法c、用判断
+			};
+    	</script>
+    </body>
+</html>

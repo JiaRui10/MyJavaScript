@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	
+    	<script>
+    		window.onload = function(){
+    			// 1、往页面上放两百个按钮
+    			var str = "";   //先用一个字符串将内容记住，可以提升性能。
+    			for(var i=0;i<200;i++){
+    				str+='<input type="button" value="按钮"/>';
+    			}
+    			document.body.innerHTML = str;
+    		};
+    	</script>
+    </body>
+</html>
