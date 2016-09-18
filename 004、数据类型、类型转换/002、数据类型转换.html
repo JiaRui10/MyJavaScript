@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		var a = "100";
+    		alert(a + "100");   //100100
+    		//方法：Number();
+    		alert(Number(a) + 100);   //200
+
+    		var a1 = "";
+    		alert(Number(a1));	  //0
+    		var a2 = "   ";
+    		alert(Number(a2));    //0
+
+    		var a3 = true;
+    		alert(Number(a3));   //1
+    		var a4 = false;
+    		alert(Number(a4));   //0
+
+    		var a5 = [];
+    		alert(Number(a5));    //空数组：0
+    		var a6 = [""];
+    		alert(Number(a6));   //0
+    		var a7 = [123];
+    		alert(Number(a7));   //123
+
+    		alert(Number([1,2,3]));    //NaN......
+
+    		alert(Number(null));   //0
+    	</script>
+    </body>
+</html>

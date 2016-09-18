@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、ECMAScript：标准、核心
+    		// 2、typeof 判断数据类型
+    		alert(typeof 100);
+    		// 3、JS中的数据类型：数字、字符串、布尔值、函数、对象（obj、[]、{}、null）、未定义
+
+    		// 4、字符串
+    		var s = " Rui ";
+    		alert(s.length);
+    		alert(s.charAt(3));   //根据下标获取子串
+
+    		// 5、函数类型
+    		var fn = function(){ alert(1) };
+    		alert(fn);
+    		fn();   //调用
+
+    		// 6、对象
+    		var obj = window;
+    		alert(typeof obj);
+    		obj.fn1 = function(){ alert(1); };  //给对象添加方法
+    		obj.fn1();  //调用
+
+    		// 7、数组
+    		var arr = [1,2,3,4];
+    		arr.push(5,6,7);    //给数组添加元素
+    		alert(typeof arr);   //数组也是一个object，所以也可以往里面添加自定义属性、方法。不过不建议
+    		arr.abc = 999;
+    		alert(arr.abc);
+    		arr.fn1 = function(){ alert("ok"); };
+
+    		// 8、JSON
+    		var json = {name:"XiaoZhuang" , age:21};
+    		alert(json.name);
+    		alert(typeof json);   //也是一个object
+
+
+    		// 9、null
+    		alert(typeof null);  //空对象
+
+    		// 10、
+    		var u;
+    		alert(typeof u);    // undefined  未定义
+    	</script>
+    	
+    </body>
+</html>
