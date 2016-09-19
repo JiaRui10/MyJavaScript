@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+            // 1、参数为函数
+    		function fn4(){
+    			alert(4);
+    		}
+    		fn3(fn4);    //注意fn4不用加括号
+    		function fn3(fn){
+    			fn();
+    		}
+
+            fn3(function(){ alert("haha")});
+
+            // 2、参数为对象
+            fn5(window , document);
+            function fn5(w,d){
+                w.onload = function(){
+                    d.body.innerHTML = 123;
+                };
+            }
+    	</script>
+    </body>
+</html>

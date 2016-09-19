@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		fn1(100);
+    		fn1("haha");
+    		fn1(function(){ alert(1)});
+
+    		function fn1(a){
+    			if(typeof a==='number' && a===a){  //因为number还包括NaN
+    				alert(a+20);
+    			}else if(typeof a=="string"){
+    				alert(a.charAt(2));
+    			}else if(typeof a=="function"){
+    				a();
+    			}
+    		}
+    	</script>
+    </body>
+</html>
