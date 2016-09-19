@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、Number()、parseInt()、parseFloat()这三种属于显式类型转换（强制类型转换）
+
+    		// 2、隐式类型转换
+    		// a、- * / % 这四个可以让(字符串)变成数字
+    		alert("200"-3);
+    		
+    		// b、+可以让(数字)变成字符串
+    		alert("200"+3);
+    		
+    		// c、++ -- 变成数字
+    		var a = "10";
+    		a++;
+    		alert(a);    //11
+
+    		// d、> < 数字、字符串的比较
+    		alert("10">9);  //true：数字比较
+    		alert("10">"9");   //false：字符串比较
+
+    		// e、! 取反  把右边的数据类型转换成布尔值
+    		alert(!true);
+    		alert(!"ok");  //false
+
+    		// f、==
+    		alert("2" == 2);   //true。两个等号判断最终的值
+    		alert("2" === 2);  //false。三个等号先判断类型，再判断值【里面没有任何转换】
+    	</script>
+    </body>
+</html>

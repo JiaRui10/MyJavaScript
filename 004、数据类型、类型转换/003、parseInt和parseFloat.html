@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1
+    		var b = "100px123456";
+    		alert(parseInt(b));   //parseInt：把b解析成一个整型。最好只转字符串
+
+    		alert(parseInt(+200));   //这里说明parseInt还是认得一些符号的：加号、减号、空格
+
+    		alert(parseInt(b , 10));   //按十进制来进行转换
+
+    		// 2、浮点数转换。比上面的parseInt聪明一点，在转的时候认识小数点
+    		var c = "12.34元";
+    		alert(parseFloat(c));
+    		alert(parseFloat(12.3.4));   //仅认识一个小数点
+
+
+    		// 3、两者配合：判断数值是整数还是小数
+    		var num = "200";
+    		if(parseInt(num) == parseFloat(num)){
+    			alert(num + "是整数");
+    		}else{
+    			alert(num + "是小数");
+    		}
+    	</script>
+    </body>
+</html>

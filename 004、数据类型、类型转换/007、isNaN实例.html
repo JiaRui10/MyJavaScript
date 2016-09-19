@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="text">
+    	<input type="button" value="请输入数字">
+
+    	<script>
+    		window.onload = function(){
+    			var alnp = document.getElementsByTagName("input");
+    			var str = "";
+    			alnp[1].onclick = function(){
+    				str = alnp[0].value;
+    				//1、HTML中拿到的内容，它的类型都是字符串
+    				alert(typeof str);  
+
+    				// 2、
+    				if(isNaN(str)){
+    					alert(str + "不是数字");
+    				}else{
+    					alert(str + "是数字");
+    				}
+    			};
+    		};
+    	</script>
+    </body>
+</html>
