@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+		<!-- 3、 -->
+		<input type="button" value="按钮1">
+		<input type="button" value="按钮2">
+		<input type="button" value="按钮3">
+
+    	<script>
+    		// 1、
+    		//函数是一个作用域。而if这种条件判断语句，和for循环语句，不是一个作用域
+    		// 作用域的标志：先解析后执行
+    		
+
+    		// 2、
+    		alert(fn1);    // 火狐浏览器不能对下面的函数进行预解析。（兼容性问题）
+    		if(true){
+    			var a = 1;
+    			function fn1(){
+    				alert(123);
+    			}
+    		}
+    		// 所以，尽量不要在if语句里定义变量和函数
+
+
+    		// 4、
+    		window.onload = function(){
+    			var aBtn = document.getElementsByTagName("input");
+    			for(var i=0;i<aBtn.length;i++){
+    				aBtn[i].onclick = function(){
+    					alert(i);   // 3。按钮的长度
+    					//aBtn[i].style.background = "yellow";    // i=3。所以应该再用一个for循环
+
+    					for(var i=0;i<aBtn.length;i++){
+    						aBtn[i].style.background = "yellow";
+    					}
+    				};
+    			}
+    		};
+    		// 【for里面包一个function时，不要在function里面使用i】
+    	</script>
+    </body>
+</html>
