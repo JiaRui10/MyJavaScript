@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*4*/
+	li {
+		margin-bottom: 3px;
+		list-style: none;
+		height: 24px;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 2、给li平铺颜色 -->
+    	<ul id="ul1">
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    	</ul>
+    	<script>
+    		// 1、取模。模拟图片切换
+    		// var i = 0;
+    		// i++;
+    		// i%=5;
+
+    		// 3、
+    		window.onload = function(){
+    			var aLi = document.getElementsByTagName("li");
+    			//颜色数组
+    			var arr = ["red","yellow","blue"];
+
+    			// 10、定义一个变量，用于存放当时的颜色
+    			var str = "";
+
+    			for(var i=0;i<aLi.length;i++){
+    				// 7、方法a：给li加一个索引值
+    				aLi[i].index = i;
+
+    				aLi[i].style.background = arr[i%arr.length];
+
+    				// 5、鼠标移入时改变颜色
+    				aLi[i].onmouseover = function(){
+    					// 11、鼠标移入时，记录原来的颜色
+    					str = this.style.background;
+
+    					this.style.background = "gray";
+    				};
+    				// 6、移出时恢复原来的颜色【两种方法】
+    				aLi[i].onmouseout = function(){
+    					// 8、
+    					// this.style.background = arr[this.index%arr.length];
+
+    					// 9、方法b：鼠标移入时记录颜色
+
+    					// 12、鼠标移开之后，再恢复会记录的原来的颜色
+    					this.style.background = str;
+    				};
+
+
+    				// 13、取模的另一个应用
+    				//var s = 65;  //秒
+    				// alert(Math.floor(s/60) + "分" + s%60);
+
+    				// 总结：一个数在不停的变。一旦遇到它自己，结果又变成0
+    			}
+    		};
+    	</script>
+    </body>
+</html>

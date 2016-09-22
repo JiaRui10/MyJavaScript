@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="button" value="反选">
+    	<ul>
+    		<li><input type="checkbox" checked></li>  <!-- checked=true -->
+    		<li><input type="checkbox"></li>
+    		<li><input type="checkbox" checked></li>
+    		<li><input type="checkbox"></li>
+    		<li><input type="checkbox"></li>
+    	</ul>
+
+    	<script>
+    		window.onload = function(){
+    			var alnp = document.getElementsByTagName("input");
+    			alnp[0].onclick = function(){
+    				for(var i=1;i<alnp.length;i++){
+    					//取到它的值，再取反
+    					alnp[i].checked = !alnp[i].checked;
+    				}
+    			};
+    		};
+    	</script>
+    </body>
+</html>
