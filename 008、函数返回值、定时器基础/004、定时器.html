@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	
+    	<script>
+    		// 1、定时器：
+    		// var timer = setInterval(函数 , 毫秒);   【重复执行】
+    		// clearInterval(timer);   清除定时器
+    		i = 0;
+    		var timer = null;
+    		function fn1(){
+    			i++;
+    			document.title = i;
+
+    			if(i === 5){
+    				clearInterval(timer);
+    			}
+    		}
+    		timer = setInterval(fn1 , 1000);     // 注意函数不要加括号。最好是14毫秒以上
+    	</script>
+    </body>
+</html>

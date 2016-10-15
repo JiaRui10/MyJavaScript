@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*3*/
+	body {
+		background: url(images/sina.jpg) no-repeat center 0;
+		text-align: center;
+	}
+	/*广告一开始是隐藏状态*/
+	img {
+		display: none;
+	}
+</style>
+</head>
+    <body>
+		<!-- 4 -->
+		<img id="miaov" src="images/miaov.jpg" alt="">
+    	<script>
+    		// 1、var timer = setTimeout(函数 , 毫秒);     【执行一次】
+    		// 2、clearTimeout();
+
+    		// 应用：打开网页一会才出现的广告。延时定时器
+
+    		// 5、2秒后出现，再3秒后自动消失
+    		window.onload = function(){
+    			var miaov = document.getElementById("miaov");
+    			setTimeout(function(){
+    				miaov.style.display = "inline-block";
+
+    				// 6、看一会自动消失。使用同样的方法
+    				setTimeout(function(){
+    					miaov.style.display = "none";
+    				} , 3000);
+    			} , 2000);
+    		};
+    	</script>
+    </body>
+</html>

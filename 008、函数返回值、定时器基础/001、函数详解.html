@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、
+    		// alert(typeof fn1());
+    		// function fn1(){
+    		// 	return "Zhuang";
+    		// }
+
+    		// 2、返回一个函数
+    		// alert(fn2());
+    		// function fn2(){
+    		// 	return function(){
+    		// 		alert(1);
+    		// 	};
+    		// }
+    		// fn2()();   // 执行所返回的函数
+
+    		// 3、传递参数
+    		// fn2(20)(30);
+    		// function fn2(a){
+    		// 	return function(b){
+    		// 		alert(a+b);
+    		// 	};
+    		// }
+
+    		// 4、返回对象
+    	// 	window.onload = function(){
+    	// 		getId("btn1").onclick = function(){};
+    	// 		alert(getId("div1").innerHTML);
+    	// 	};
+    	// 	function getId(id){
+    	// 		return document.getElementById(id);
+    	// 	}
+
+    		// 5、返回数组
+    		// alert(fn1(5));   //[1,2,3,4,5]
+    		// alert(fn1(7));	 //[1,...,7]
+    		// function fn1(n){
+    		// 	var arr = [];
+    		// 	for(var i=1;i<=n;i++){
+    		// 		arr.push(i);
+    		// 	}
+    		// 	return arr;
+    		// }
+
+    		// 6、返回未定义
+    		alert(fn4());
+    		function fn4(){
+    			return ;  //这里返回一个未定义。不写这个语句返回的也是未定义。【所有函数的默认返回值都是未定义】
+    		}
+
+    		// 总结：
+    		// return：返回值
+    		// 1）函数名+括号：fn1()  →  return 后面的值
+    		// 2）所有函数默认返回值：未定义
+    		// 3）return后面任何代码都不执行了
+    	 </script>
+    </body>
+</html>

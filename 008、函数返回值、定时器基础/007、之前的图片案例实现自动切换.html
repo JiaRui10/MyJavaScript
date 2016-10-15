@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// ...
+    		var timer = null;
+    		function autoPlay(){
+    			timer = setInterval(function(){
+    				num++;
+    				num%=arrText.length;
+    				fnTab();
+    			} , 1000);
+    		}
+    		// 1、一打开网页直接切换
+    		// autoPlay();
+
+    		// 2、等待3秒钟后切换
+    		setTimeout(autoPlay , 2000);
+
+    		oDiv.onmouseover = function(){
+    			clearInterval(timer);
+    		};
+    		oDiv.onmouseout = autoPlay;
+    	</script>
+    </body>
+</html>

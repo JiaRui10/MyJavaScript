@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="button" value="换背景吧">
+    	<input type="button" value="停">
+
+    	<script>
+    		var aBtn = document.getElementsByTagName("input");
+    		// 1、用数组存放图片路径
+    		var arrUrl = ["images/001.jpg","images/002.jpg","images/003.jpg","images/004.jpg"];
+    		// 有数组的地方，大多情况都是有一个数字的
+    		var num = 0;
+
+    		// 2、定义一个定时器
+    		var timer = null;
+
+    		 var oBody = document.body;
+    		 // oBody.style.background = "url(" + arrUrl[num] + ")";
+
+    		 // 3、添加点击事件
+    		 aBtn[0].onclick = function(){
+    		 	// 5、每一次开定时器之前，先关掉之前的定时器
+    		 	clearInterval(timer);    // null、未定义都可以清除
+
+    		 	timer = setInterval(function(){
+    		 		oBody.style.background = "url(" + arrUrl[num] + ")";
+    		 		num++;   // 数字增加
+
+    		 		num %= arrUrl.length;   // 实现循环
+    		 	} , 1000);
+    		 };
+    		 aBtn[1].onclick = function(){
+    		 	clearInterval(timer);
+    		 };
+
+    		 // 4、小bug：如果多点几次"换背景吧"。原因：每点一次，产生一个定时器
+
+    		 // 6、【定时器如果是由用户控制的，要注意：先关后开】
+    	</script>
+    </body>
+</html>

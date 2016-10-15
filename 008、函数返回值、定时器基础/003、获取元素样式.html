@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	div {
+		width: 100px;
+		height: 120px;
+		background: red;
+	}
+</style>
+</head>
+    <body>
+		<!-- 1、 -->
+		<input type="button" value="按钮" id="btn1">
+		<div id="div1"></div>
+
+    	<script>
+    		function $(v){
+    			if(typeof v === "function"){
+    				window.onload = v;
+    			}else if(typeof v === "string"){
+    				return document.getElementById(v);
+    			}else if(typeof v === "object"){
+    				return v;
+    			}
+    		}
+    		// 3、【点击按钮，得到div的宽度】
+    		$(function(){
+    			$("btn1").onclick = function(){
+    				// alert($("div1").id);
+
+    				//alert($("div1").width);    // 这样写只能获取到行间的样式，获取不到css样式表中的样式
+
+    				// alert(getComputedStyle($("div1")).width);
+    				// 【getComputedStyle获取到的是计算机（浏览器）计算后的样式。】
+    				// 此方法IE6 7 8不兼容
+
+    				// alert($("div1").currentStyle.width);
+    				// 标准浏览器不兼容
+
+    				// 4、属性判断法
+    				// if($("div1").currentStyle){
+    				// 	alert($("div1").currentStyle.width);
+    				// }else{
+    				// 	alert(getComputedStyle($("div1")).width);
+    				// }
+
+    				// 6、
+    				alert(getStyle($("div1") , "width"));
+    				alert(getStyle($("div1") , "height"));
+
+    				// 7、此方法的局限性
+    				//alert(getStyle($("div1") , "background"));  // 【复合样式不要用此方法获取】
+    				alert(getStyle($("div1") , "backgroundColor"));   // 单一样式能获取（不要拿来做判断！！），但是也有兼容性问题
+    				// 【不要获取未设置后的样式，不兼容】
+    			};
+    		});
+
+    		// 5、将上面的判断法封装一下
+    		function getStyle(obj , attr){
+    			// if(obj.currentStyle){
+    			// 	return obj.currentStyle[attr];
+    			// }else{
+    			// 	return getComputedStyle(obj)[attr];
+    			// }
+    			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+    		}
+    	</script>
+    </body>
+</html>

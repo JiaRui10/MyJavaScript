@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#qq {
+		width: 200px;
+		height: 400px;
+		background: #F9C;
+	}
+	#title {
+		width: 240px;
+		height: 180px;
+		background: #FC6;
+		position: absolute;
+		top: 10px;
+		left: 220px;
+		display: none;   /*默认隐藏*/
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<div id="qq"></div>
+    	<div id="title"></div>
+
+		<!-- 3 -->
+    	<script src="miaov.js"></script>
+		
+		<script>
+			$(function(){
+				var qq = $("qq");
+				var title = $("title");
+
+				// 5、添加定时器，让title慢点消失
+				timer = null;
+
+				// 4、添加事件
+				qq.onmouseover = show;
+				qq.onmouseout = hide;
+				function show(){
+					// 8、注意：先关后开
+					clearInterval(timer);
+
+					title.style.display = "block";
+				}
+				function hide(){
+					// title.style.display = "none";
+
+					// 6
+					timer = setTimeout(function(){
+						title.style.display = "none";
+					} , 200);
+				}
+
+				// 7、给title添加鼠标移入事件，让其显示
+				title.onmouseover = show;
+
+				// 9、鼠标离开title后，过会消失
+				title.onmouseout = hide;
+			});
+		</script>
+    </body>
+</html>
