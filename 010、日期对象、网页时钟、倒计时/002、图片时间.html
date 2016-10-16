@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body style="font-size:40px;">
+        <!-- 1 -->
+        <p id="itime" font-size="60px"></p>
+        <!-- 4 -->
+        <img src="img/0.jpg" alt="">
+        <img src="img/0.jpg" alt="">
+        <img src="img/0.jpg" alt="">
+        <img src="img/0.jpg" alt="">
+        <img src="img/0.jpg" alt="">
+        <img src="img/0.jpg" alt="">
+
+    	<script>
+    		function fnTime(){
+    			var myTime = new Date();
+	    		var iHour = myTime.getHours();
+	    		var iMin = myTime.getMinutes();
+	    		var iSec = myTime.getSeconds();
+	    		var str = toTow(iHour)+toTow(iMin)+toTow(iSec);
+
+                // 3
+	    		// oBody.innerHTML = str;
+                oP.innerHTML = str;
+
+
+                // 6、获取str字符串中的某一个，然后对应到图片中
+                // aImg[5].src = "img/"+str.charAt(5)+".jpg";
+                for(var i=0;i<aImg.length;i++){
+                    aImg[i].src = "img/"+str.charAt(i)+".jpg";
+                }
+    		}
+    		var oBody = document.body;
+
+            // 2
+            var oP = document.getElementById("itime");
+
+            // 5
+            var aImg = document.getElementsByTagName("img");
+
+    		setInterval(fnTime , 1000);
+    		fnTime();
+
+    		function toTow(n){
+    			return n<10?"0"+n:""+n;
+    		}
+    	</script>
+    </body>
+</html>

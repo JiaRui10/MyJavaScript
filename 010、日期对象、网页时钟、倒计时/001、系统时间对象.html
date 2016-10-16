@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body style="font-size:40px;">
+    	<script>
+    		// 1、当前系统的时间对象
+    		// alert(new Date());
+
+    		// 2、得到时间对象里面的信息。数据类型为：number
+    		// var myTime = new Data();
+    		// var iYear = myTime.getFullYear();
+    		// getMonth()【注意它是从0开始，所以要+1】、getDate()、getDay()、getHours()、getMinutes()、getSeconds()
+
+    		// var iWeek = myTime.getDay();
+    		// if(iWeek === 0) iWeek="星期日";
+
+    		// 3、将时间呈现到body中
+    		// var oBody = document.body;
+    		// var myTime = new Date();
+
+    		// var iYear = myTime.getFullYear();
+    		// var iMonth = myTime.getMonth()+1;
+    		// var iDate = myTime.getDate();
+    		// var iWeek = myTime.getDay();
+    		// var iHour = myTime.getHours();
+    		// var iMin = myTime.getMinutes();
+    		// var iSec = myTime.getSeconds();
+    		// if(iWeek === 0) iWeek="星期日";
+    		// if(iWeek === 1) iWeek="星期一";
+    		// if(iWeek === 2) iWeek="星期二";
+    		// if(iWeek === 3) iWeek="星期三";
+    		// if(iWeek === 4) iWeek="星期四";
+    		// if(iWeek === 5) iWeek="星期五";
+    		// if(iWeek === 6) iWeek="星期六";
+
+    		// var str = iYear+"年"+iMonth+"月"+iDate+"日"+" "+iWeek+"  "+iHour+":"+iMonth+":"+iSec;
+    		// oBody.innerHTML = str;
+
+
+    		// 4、使用定时器，每秒钟更新一下时间。先将上面的时间信息封装成一个函数
+    		function fnTime(){
+    			var myTime = new Date();
+
+	    		var iYear = myTime.getFullYear();
+	    		var iMonth = myTime.getMonth()+1;
+	    		var iDate = myTime.getDate();
+	    		var iWeek = myTime.getDay();
+	    		var iHour = myTime.getHours();
+	    		var iMin = myTime.getMinutes();
+	    		var iSec = myTime.getSeconds();
+	    		if(iWeek === 0) iWeek="星期日";
+	    		if(iWeek === 1) iWeek="星期一";
+	    		if(iWeek === 2) iWeek="星期二";
+	    		if(iWeek === 3) iWeek="星期三";
+	    		if(iWeek === 4) iWeek="星期四";
+	    		if(iWeek === 5) iWeek="星期五";
+	    		if(iWeek === 6) iWeek="星期六";
+
+	    		// var str = iYear+"年"+iMonth+"月"+iDate+"日"+" "+iWeek+"  "+iHour+":"+iMonth+":"+iSec;
+	    		// 7、
+	    		var str = iYear+"年"+iMonth+"月"+iDate+"日"+" "+iWeek+"  "+toTow(iHour)+":"+toTow(iMin)+":"+toTow(iSec);
+
+	    		oBody.innerHTML = str;
+    		}
+    		var oBody = document.body;
+    		// 5、每隔一秒钟调用一次函数
+    		setInterval(fnTime , 1000);
+    		// 因为定时器是一秒之后才执行，如果要一打开就显示时间，可以先执行一下
+    		fnTime();
+
+
+    		// 6、写一个函数。用于处理秒前面少了个零
+    		function toTow(n){
+    			return n<10?"0"+n:""+n;
+    		}
+    	</script>
+    </body>
+</html>

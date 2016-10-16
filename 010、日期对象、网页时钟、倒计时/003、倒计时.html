@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、获取现在的时间点
+    		var iNow = new Date();
+    		// 2、未来的时间点。两种参数写法，数字形式：new Date(2013,4,1,9,48,12);字符串形式：new Date("June 10,2013 12:12:12")
+    		// 注意月份：【如果你要算11月份，要减1，写成10】
+    		var iNew = new Date(2016,9,17,23,59,59);
+
+    		// 3、计算两者之差。单位：毫秒
+    		// var t = iNew - iNow;
+    		// var t = (iNew-iNow)/1000;
+    		// alert(t);
+
+    		// 4、去掉小数点。秒
+    		var t = Math.floor((iNew-iNow)/1000);
+
+    		// 5、转换
+    		var str = Math.floor(t/86400)+"天"+Math.floor(t%86400/3600)+"时"+Math.floor(t%86400%3600/60)+"分"+Math.floor(t%60)+"秒";
+    		alert(str);
+    	</script>
+    </body>
+</html>

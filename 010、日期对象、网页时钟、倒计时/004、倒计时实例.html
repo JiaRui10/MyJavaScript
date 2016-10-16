@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	.t1 {
+		width: 400px;
+	}
+</style>
+</head>
+    <body>
+		<!-- 1 -->
+		距离：<input type="text" class="t1" value="October  27,2016 0:0:0"><br>
+		还剩：<input type="text" class="t1">
+		<input type="button" value="开始倒计时吧">
+		<p id="time"></p>
+
+    	<script>
+    		window.onload = function(){
+    			// 3
+    			var aInp = document.getElementsByTagName("input");
+
+    			// 4
+    			var iNow = null;
+    			var iNew = null;
+    			var t = 0;
+    			var str = "";
+    			// 7、添加定时器
+    			var timer = null;
+
+    			aInp[2].onclick = function(){
+    				// 5
+    				// iNew = new Date(aInp[0].value);
+    				// iNow = new Date();
+    				// t = Math.floor((iNew-iNow)/1000);
+    				// 6
+    				// var str = Math.floor(t/86400)+"天"+Math.floor(t%86400/3600)+"时"+Math.floor(t%86400%3600/60)+"分"+Math.floor(t%60)+"秒";
+    				// aInp[1].value = str;
+
+    				// 8、定时器：先关后开
+    				iNew = new Date(aInp[0].value);
+    				clearInterval(timer);
+    				timer = setInterval(function(){
+    					iNow = new Date();
+    					t = Math.floor((iNew-iNow)/1000);
+
+    					// 9、添加t的判断条件
+    					if(t>=0){
+    						var str = Math.floor(t/86400)+"天"+Math.floor(t%86400/3600)+"时"+Math.floor(t%86400%3600/60)+"分"+Math.floor(t%60)+"秒";
+    						aInp[1].value = str;
+    					}else{
+    						clearInterval(timer);
+    					}
+    				} , 1000);
+    			};
+    		};
+
+
+    		// 10、new Date().getTime()：时间戳
+    	</script>
+    </body>
+</html>
