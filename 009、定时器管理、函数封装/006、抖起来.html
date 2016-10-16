@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	img {
+		position: absolute;
+		top: 200px;
+		left: 300px;
+		width: 100px;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<img src="img/4.jpg" alt="" id="img1">
+
+		<!-- 3 -->
+    	<script src="miaov.js"></script>
+
+    	<script>
+    		var oImg = document.getElementById("img1");
+    		oImg.onclick = function(){
+    			// 5、获取图片原来的位置
+    			var pos = parseInt(getStyle(oImg , "left"));
+
+    			// 4、设置抖的频率。【重点】
+    			var arr = [];
+    			var num = 0;
+    			for(var i=20;i>0;i-=2){
+    				arr.push(i , -1);
+    			}
+    			arr.push(0);
+    			// alert(arr);
+
+    			// 6、开一个定时器
+    			var timer = null;
+    			clearInterval(timer);
+    			timer = setInterval(function(){
+    				oImg.style.left = pos + arr[num] + "px";
+    				num++;
+    				if(num === arr.length){
+    					clearInterval(timer);
+    				}
+    			} , 50);
+    		};
+    	</script>
+    </body>
+</html>

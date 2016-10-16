@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	#div1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		top: 50px;
+		left: 30px;
+	}
+</style>
+</head>
+    <body>
+        <!-- 1、一个按钮：实现div先往右走，再往下走 -->
+    	<input type="button" id="btn1" value="走">
+
+    	<div id="div1"></div>
+
+    	<script>
+    		var oBtn1 = document.getElementById("btn1");
+    		var oDiv = document.getElementById("div1");
+
+    		
+    		oBtn1.onclick = function(){
+                // 2、往右走，走到尽头之后，还想再做一些事，就得再加一个函数。这个函数叫做【回调函数】
+                // doMove(oDiv , "top" , 12 , 40);
+                // doMove(oDiv , "left" , 12 , 900 , function(){ alert(1); });
+
+                // 5、停下来之后往下走
+                doMove(oDiv , "left" , 12 , 900 , function(){
+                    doMove(oDiv , "top" , 12 , 500);
+                });
+    		};
+    		function getStyle(obj , attr){
+    			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+    		}
+
+            // 3、添加一个回调函数参数。注意这个参数时有时无
+            // function doMove(obj , attr , dir , target){
+            function doMove(obj , attr , dir , target , endFn){    
+                dir = parseInt(getStyle(obj , attr))<target?dir:-dir;
+
+
+                clearInterval(obj.timer);
+
+                obj.timer  = setInterval(function(){
+                    var speed = parseInt(getStyle(obj , attr)) + dir;  
+
+                    if(speed > target && dir>0 || speed < target && dir<0){ 
+                        speed = target;
+                    }
+
+                    obj.style[attr] = speed + "px";
+
+                    if(speed == target){
+                        clearInterval(obj.timer);
+                        // alert(speed);
+
+                        // 4、停下来之后执行回调函数
+                        // if(endFn){
+                        //     endFn();
+                        // }
+                        // 另一种写法
+                        endFn && endFn();
+                    }
+                } , 30);
+            }
+    	</script>
+    </body>
+</html>

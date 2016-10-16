@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	img {
+		position: absolute;
+		top: 200px;
+		left: 300px;
+		width: 100px;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<img src="img/4.jpg" alt="" id="img1">
+
+		<!-- 3 -->
+    	<script src="miaov.js"></script>
+
+    	<script>
+    		var oImg = document.getElementById("img1");
+    		oImg.onclick = function(){
+    			// 2、抖完之后再做点事，可以加一个回调函数
+                // shake(oImg , "left" , function(){alert(1);});
+
+                // 3、横着抖完之后，再竖着抖
+                // shake(oImg , "left" , function(){
+                //     shake(oImg , "top");
+                // });
+
+                // 4、这里还可以使用到this
+                var _this = this;
+                shake(_this , "left" , function(){
+                     shake(_this , "top");
+                });
+    		};
+            // 1
+            function shake(obj,attr,endFn){
+                var pos = parseInt(getStyle(obj , attr));
+                // 5、注意上面这个语句时有隐患的。因为它抖完之后就是相对于上面这个初始化值。【当你多点击几次，多抖几次，就会出现问题】
+
+                var arr = [];
+                var num = 0;
+                for(var i=20;i>0;i-=2){
+                    arr.push(i , -1);
+                }
+                arr.push(0);
+
+                // 为了避免和其他定时器冲突，可以将名字改为shake
+                clearInterval(obj.shake);
+                obj.shake = setInterval(function(){
+                    obj.style[attr] = pos + arr[num] + "px";
+                    num++;
+                    if(num === arr.length){
+                        clearInterval(obj.shake);
+
+                        endFn&&endFn();
+                    }
+                } , 50);
+            }
+    	</script>
+    </body>
+</html>

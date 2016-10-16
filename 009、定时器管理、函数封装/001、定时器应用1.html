@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#div1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		top: 50px;
+		left: 30px;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<input type="button" id="btn1" value="往前">
+    	<div id="div1"></div>
+
+    	<script>
+    		var oBtn = document.getElementById("btn1");
+    		var oDiv = document.getElementById("div1");
+
+    		// 7
+    		// var timer = null;
+    		// 11、将timer设置为div的属性。这个语句可以不写，便于【封装！！！！】因为clearInterval可以清除null，在48行的时候oDiv.timer也有赋值
+    		// oDiv.timer = null;
+
+    		
+    		oBtn.onclick = function(){
+    			// 10、点击的时候先把定时器停掉
+    			// clearInterval(timer);
+    			// 12、清除div身上的timer
+    			clearInterval(oDiv.timer);
+
+    			// 4、测试能否获取left值。并且去掉px单位
+    			// alert(getStyle(oDiv , "left"));
+    			// alert(parseInt(getStyle(oDiv , "left")));
+
+    			// 5、使div发生移动
+    			// oDiv.style.left = parseInt(getStyle(oDiv , "left")) + 10 + "px";
+
+    			// 6、用定时器让它自动移动
+    			oDiv.timer  = setInterval(function(){
+    				var speed = parseInt(getStyle(oDiv , "left")) + 29;   // 步长
+
+    				// 8、让div在800的地方停下来：限制步长
+    				if(speed > 800){
+    					speed = 800;
+    				}
+
+    				oDiv.style.left = speed + "px";
+
+    				// 9、让div在800的地方停下来
+    				if(speed == 800){
+    					clearInterval(oDiv.timer);
+    					alert(speed);
+    				}
+    			} , 30);
+    		};
+
+    		// 3
+    		function getStyle(obj , attr){
+    			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+    		}
+    	</script>
+    </body>
+</html>

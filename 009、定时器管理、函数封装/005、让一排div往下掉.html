@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	
+    	<!-- 2、引进之前已经写好的函数 -->
+    	<script src="miaov.js"></script>
+    	<script>
+    		window.onload = function(){
+    			var str = "";
+    			var len = 20;
+
+    			// 5、开一个定时器
+    			var timer = null;
+    			var num = 0;
+
+    			// 3、
+    			var aDiv = document.getElementsByTagName("div");
+
+    			// 1、生成10个div
+    			for(var i=0;i<len;i++){
+    				str += '<div style="width:50px;height:50px;background:red;position:absolute;top:0px;left:'+ i*60 + 'px;"></div>';
+    			}
+    			document.body.innerHTML = str;
+
+    			document.onclick = function(){
+    				// 4、点击页面任何地方都有相应
+    				// doMove(aDiv[0] , "top" , 23 , 500);
+
+    				// 6、为了防止重复点击，在开启定时器之前，一定要记得把它关掉
+    				timer = setInterval(function(){
+    					doMove(aDiv[num] , "top" , 23 , 500);
+    					// 掉完第0个，num得加1，让第1个往下掉
+    					num++;
+    					// 如果num等于div的数量，这时要把定时器给关掉
+    					if(num==len){
+    						clearInterval(timer);
+    					}
+    				} , 100);
+    			};
+    		};
+    	</script>
+    </body>
+</html>
