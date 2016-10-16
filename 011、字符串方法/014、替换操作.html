@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+p { border:10px solid #ccc; background:#FFC; width:400px; padding:20px; font-size:16px; font-family:微软雅黑; }
+span { background:yellow; }
+</style>
+
+</head>
+
+<body>
+
+	<input type="text" />
+	<!-- 1 -->
+	<input type="text" />
+	<input type="button" value="替换" />
+
+	<p>1996年夏天，湖人得到“大鲨鱼”沙奎尔·奥尼尔，并与夏洛特黄蜂队交易得到新秀科比·布莱恩特，两人带领湖人队在1999-2002年间取得了三连冠。<br />
+	2007年，保罗·加索尔加入湖人队，球队又于2008-2010年三度进入总决赛并2次夺冠。但是伤病开始袭击湖人，导致球队不得不进入重建时期。</p>
+
+	<script>
+		var aInp = document.getElementsByTagName('input');
+		var oP = document.getElementsByTagName('p')[0];
+
+		aInp[2].onclick = function () {
+			var str = aInp[0].value;
+			// 2、获取第一个的value值
+			var newStr = aInp[1].value;
+
+			if(!str) return;
+			// 3、将之前'<span>'+str+'</span>'替换成第一个的value值
+			oP.innerHTML = oP.innerHTML.split(str).join('<span>'+newStr+'</span>');
+		};
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// var str = "http://www.baidu.com/";
+    		// 1、如果要找的东西不存在，返回-1
+    		// alert(str.indexOf("w"));
+    		// 2、查找后面的w，第二个参数：从哪个开始找。包含
+    		// alert(str.indexOf("w" , 8));
+
+    		// 3、实现查找指定的字符串出现多少次，并且出现在第几位
+    		var str = "1996年夏天，湖人得到“大鲨鱼”沙奎尔·奥尼尔，并与夏洛特黄蜂队交易得到新秀科比·布莱恩特，两人带领湖人队在1999-2002年间取得了三连冠。2007年，保罗·加索尔加入湖人队，球队又于2008-2010年三度进入总决赛并2次夺冠。但是伤病开始袭击湖人，导致球队不得不进入重建时期。";
+    		var s = "湖人";
+    		var i = 0;
+
+    		for(;str.indexOf(s,i)!=-1;){
+    			alert(str.indexOf(s,i));
+    			i = str.indexOf(s,i)+s.length;
+    		}
+    	</script>
+    </body>
+</html>

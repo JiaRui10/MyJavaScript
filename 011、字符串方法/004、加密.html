@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="text">
+    	<input type="button" value="加密">
+		<div id="div1"></div>
+
+		<script>
+			var aInp = document.getElementsByTagName("input");
+			var oDiv = document.getElementById("div1");
+
+			aInp[1].onclick = function(){
+				var str = aInp[0].value;   //输入的文字
+				var str1 = "";
+				for(var i=0;i<str.length;i++){
+					// str1 += str.charCodeAt(i)+":";
+
+					//加密
+					str1 += String.fromCharCode(str.charCodeAt(i)-10000);
+				}
+				oDiv.innerHTML = str1;
+			};
+		</script>
+    </body>
+</html>
