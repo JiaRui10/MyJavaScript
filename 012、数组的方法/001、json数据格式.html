@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1
+    		var json = {name:"leo" , age:32 ,};
+    		alert(json.name);
+
+    		// 2、用json存放数组
+    		var imgData = {
+    			url : ["img/1.png","img/2.png","img/3.png"],
+    			text : ["小宠物","图片二","图片三"]
+    		};
+    		alert(imgData.url[2]);
+
+    		// 3、json里面元素的第二种访问方式
+    		// var json2 = {name:"xiaozhuang"};
+    		var json2 = {"name":"xiaozhuang"};   // 两种格式一样。不过推荐下面这种，较安全
+    		alert(json2.name);
+
+    		// 第二种访问方式
+    		alert(json2["name"]);
+
+    		// 4、改写json里面的元素
+    		json2.name = "abc";
+
+    		// 5、数组里面可以存放jsons
+    		var arr = [{"name":"xiaozhuang",age:21},{},{}];
+    		alert(arr[0].name);
+    	</script>
+    </body>
+</html>

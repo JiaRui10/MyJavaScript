@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		var arr = [1,2,3];
+    		// 【添加方法】
+    		// 1、push的返回值：数组新的长度
+    		alert(arr.push("abc"));
+    		// 2、往前插入，返回值也是新的长度。IE6 7不支持它的返回值
+    		arr.unshift(0);
+
+
+    		// 【删除方法】
+    		var arr = ["TM","哈哈","呵呵","嘻嘻","91250"];
+    		// 3、删掉数组最后一个元素，返回值为被删除的元素
+    		arr.pop();
+    		// 4、删掉第一个元素，返回值为被删除的元素
+    		arr.shift();
+
+
+    		// 【排队走。应用：相互的交换位置】
+    		var arr = [1,2,3,4,5];
+    		arr.unshift(arr.pop());
+    		arr.unshift(arr.pop());
+
+    		arr.push(arr.shift());
+
+
+    		// 【splice方法】
+    		// 5、splice：删除、替换、添加
+    		var arr = ["TM","哈哈","呵呵","嘻嘻","91250"];
+    		arr.splice(0,1);   // 删掉第0位，删掉一个
+    		arr.splice(0,1,"Zhuang");   // 替换掉第0位开始的一个元素
+    		arr.splice(1,0,"Zhuang");   // 在下标为1个地方添加元组
+    		// >>>>>> splice方法只在删除的时候有返回值，返回值为被删除的元素
+
+
+    		// 6、数组去重
+    		var arr = [1,2,2,4,2];
+    		for(var i=0;i<arr.length;i++){
+    			for(var j=i+1;j<arr.length;j++){
+    				if(arr[i] == arr[j]){
+    					arr.splice(j,1);
+    					j--;
+    				}
+    			}
+    		}
+    	</script>
+    </body>
+</html>

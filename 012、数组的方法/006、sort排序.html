@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1
+    		var arr = ["c","d","a","e"];
+    		arr.sort();
+    		alert(arr);
+
+    		// 2
+    		var arr2 = [4,3,5,76,2,0,8];
+    		arr2.sort();
+    		alert(arr2);   // 运行会发现8在76的后面。因为sort方法默认都是以字符串的形式来进行排序的，当78的第一位7小于8时，就默认小于8了
+
+    		// 3、修正2的问题。自定义排序方法
+    		arr2.sort(function(a,b){
+    			// return b-a;   // 由大到小。返回值一定要是数字
+    			return a-b;		// 由小到大
+    		});
+
+
+    		// 4、
+    		var arrWidth = ["345px","23px","10px","1000px"];
+    		arrWidth.sort(function(a,b){
+    			return parseInt(a)-parseInt(b);
+    		});
+    		alert(arrWidth);
+
+
+    		// 5、随机排序
+    		var arr = [1,2,3,4,5,6,7,8,9];
+    		arr.sort(function(){
+    			return Math.random()-0.5;  // 正数交换位置。负数不交换。
+    		});
+    	</script>
+    </body>
+</html>

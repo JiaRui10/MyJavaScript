@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		var json = {"name":"xiaozhuang","fun":"前端","age":21};
+    		// 1、使用for-in遍历
+    		for(var attr in json){
+    			// alert(attr);   // attr是键
+    			alert(json[attr]);   // 值。注意attr不加引号
+    		}
+
+    		// 2、遍历json里面的数组
+    		var json2 = {
+    			"url" : ["img/1.png","img/2.png","img/3.png"],
+    			"text" : ["小宠物","图片二","图片三"]
+    		};
+    		for(var attr in json2){
+    			for(var i=0;i<json2[attr].length;i++){
+    				alert(json2[attr][i]);
+    			}
+    		}
+    	</script>
+    </body>
+</html>

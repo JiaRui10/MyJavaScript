@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		var str = "";
+    		for(var attr in window){
+    			str += attr + ":" + window[attr] + "<br />";
+    		}
+
+    		document.body.innerHTML = str;
+
+
+    		// json没有length属性。所以不能用for循环遍历，只能用for-in。
+    		// 数组既可以用for循环，也可以用for-in。
+    	</script>
+    </body>
+</html>

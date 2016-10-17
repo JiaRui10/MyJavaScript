@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// var arr = [1,2,3];
+    		// var arr = new Array(1,2,3);
+    		// 1、两种写法的区别：第二种写法如果括号中只有一个数字，那它会把这个数字理解为数组的长度，而不是元素
+
+    		// 2、数组的length属性是可变。
+    		var arr = ["aaa",2,3];
+    		alert(arr.length);
+    		arr.length = 1;
+    		alert(arr);
+    		// 【快速清空数组的方法：将数组的length设置为0】
+
+    		// 另一种清空数组的方法：注意这个并不是把原来的数组给清空，而是重新赋值了。效率比上面高一点
+    		arr = [];
+
+
+    		// 3、注意字符串中的length是不可变的
+    		var str = "aaaaa";
+    		str.length = 1;
+    		alert(str);
+    	</script>
+    </body>
+</html>
