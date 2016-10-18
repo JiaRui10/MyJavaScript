@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<div id="div1" style="width:100px; height:100px; border:1px solid red; padding:10px; margin:10px;"></div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv = document.getElementById("div1");
+
+    			// 1、style.width：样式宽
+    			alert(oDiv.style.width);   // 100px
+
+    			// 2、clientWidth：可视区宽。样式宽+padding(没有单位)
+    			alert(oDiv.clientWidth);   // 120
+
+    			// 3、offsetWidth：占位宽。样式宽+padding+border
+    			alert(oDiv.offsetWidth);		// 122
+    		};
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<div id="div1"></div>
+    	<input type="button" id="btn" value="按钮">
+    	<hr>
+    	<p id="p1">ppppp</p>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv = document.getElementById("div1");
+    			var oBtn = document.getElementById("btn");
+    			var oP = document.getElementById("p1");
+    			oBtn.onclick = function(){
+    				// 1、被替换节点父级.replaceChild(新节点，被替换节点)：替换子节点
+    				document.body.replaceChild(oDiv , oP);
+
+
+    				// 2、appendChild，insertBefore，replaceChild都可以操作动态创建出来的节点，也可以操作已有节点。【剪切操作】
+    			};
+    		};
+    	</script>
+    </body>
+</html>

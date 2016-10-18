@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="ul1">
+    		<li>11111</li>
+    		<li>22222</li>
+    		<li>33333</li>
+    		<li>44444</li>
+    	</ul>
+    	<script>
+    		window.onload = function(){
+    			var oUl = document.getElementById("ul1");
+
+    			// 1、children：只读属性。子节点列表集合
+    				// 标准下：只包含元素类型的节点
+    				// 非标准下：只包含元素类型的节点
+    			alert(oUl.children.length);   // 4
+
+    			// 这样就不再需要判断节点的类型
+    			for(var i=0;i<oUl.children.length;i++){
+    				oUl.children[i].style.background = "red";
+    			}
+    		};
+    	</script>
+    </body>
+</html>

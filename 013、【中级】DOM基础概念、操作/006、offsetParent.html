@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	div {
+		padding: 40px 50px;
+	}
+	#div1 {
+		background: red;
+	}
+	#div2 {
+		background: green;
+	}
+	#div3 {
+		background: orange;
+	}
+</style>
+</head>
+    <body>
+    	<div id="div1">
+    		<div id="div2">
+    			<div id="div3"></div>
+    		</div>
+    	</div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv3 = document.getElementById("div3");
+
+    			// 1
+    			// alert(oDiv3.parentNode.id);   // div2
+
+    			// 2、元素.offsetParent：只读属性。离当前元素最近的有定位的父节点
+    				// 如果没有定位父级，默认是body
+    				// IE7以下，如果当前元素没有定位默认是body，如果有定位则是html
+    			alert(oDiv3.offsetParent.tagName);   // body1
+
+    				// IE7以下，如果当前元素的某个父级触发了layout，那么offsetParent就会被指向到这个触发了layout特性的父节点上
+    			alert(document.getElementById("div2").currentStyle.hasLayout);
+    		};
+    	</script>
+    </body>
+</html>

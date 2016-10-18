@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="ul1">
+    		<li>11111</li>
+    		<li>22222</li>
+    		<li>33333</li>
+    		<li>44444</li>
+    	</ul>
+
+    	<script>
+    		window.onload = function(){
+    			var oUl = document.getElementById("ul1");
+    			// 1、childNodes只读属性：元素.childNodes，获得一级子节点列表集合
+    			alert(oUl.childNodes.length);   // 9：4个文本节点（ul1里的回车）加4个元素节点，再加上ul1的1个回车换行符文本。
+
+    			// 2、DOM节点的类型有12种
+    			// childNodes在标准浏览器下，包含了文本和元素类型的节点，并且也会包含非法嵌套的子节点；在非标准下，只包含元素类型的节点，IE7以下不会包含非法嵌套子节点
+
+    			// 【工作中不太推荐使用childNodes，最好使用children】
+
+    			// 3、判断节点的类型：元素.nodeType（只读属性）
+    					// 1：元素节点
+    					// 2：属性节点
+    					// 3：文本节点
+    			alert(oUl.nodeType);
+
+
+    			// 4、获取属性：元素.attributes（只读属性列表集合）
+    			alert(oUl.attributes.length);
+    			alert(oUl.attributes[0]);
+    			alert(oUl.attributes[0].name);  // 获取属性名称
+    			alert(oUl.attributes[0].value);  // 获取属性值
+    		};
+    	</script>
+    </body>
+</html>

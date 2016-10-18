@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="ul1">
+    		<li>11111 <a href="javascript:;">隐藏</a></li>
+    		<li>22222 <a href="javascript:;">隐藏</a></li>
+    		<li>33333 <a href="javascript:;">隐藏</a></li>
+    		<li>44444 <a href="javascript:;">隐藏</a></li>
+    	</ul>
+
+    	<script>
+    		window.onload = function(){
+    				var aA = document.getElementsByTagName("a");
+    				for(var i=0;i<aA.length;i++){
+    					aA[i].onclick = function(){
+    						// 1、parentNode：只读属性。当前节点的父级节点
+    						this.parentNode.style.display = "none";
+    					};
+    				}
+    		};
+    	</script>
+    </body>
+</html>

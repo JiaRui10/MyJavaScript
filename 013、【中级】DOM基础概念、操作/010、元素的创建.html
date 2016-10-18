@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="text" id="text1"><input type="button" id="btn" value="留言">
+    	<ul id="ul1"></ul>
+
+    	<script>
+    		window.onload = function(){
+    			var oText = document.getElementById("text1");
+    			var oBtn = document.getElementById("btn");
+    			var oUl = document.getElementById("ul1");
+
+    			oBtn.onclick = function(){
+    				// 1、document.createElement(标签名称);
+    				var oLi = document.createElement("li");
+    				oLi.innerHTML = oText.value;
+    				// 2、添加到页面中
+    					// 父级.appendChild(要添加的元素)  追加到子元素
+    				oUl.appendChild(oLi);
+
+
+    				// 3、被插入元素的父级.insertBefore(新的元素，被插入的元素) 在指定元素前面插入一个新元素
+    				// 在IE下如果第二个参数的节点不存在，会报错。在其他标准浏览器下如果第二个参数的节点不存在，则会以appendChild的形式进行添加
+    				oUl.insertBefore(oLi , oUl.children[0]);
+    				// 4、判断兼容
+    				if(oUl.children[0]){
+    					oUl.insertBefore(oLi , oUl.children[0]);
+    				}else{
+    					oUl.appendChild(oLi);
+    				}
+
+
+
+    				// 5、给oLi添加一个a标签，每点击一次删除父级
+    				var oA = document.createElement("a");
+    				oA.innerHTML = "删除";
+    				oA.href = "javascript:;";
+    				oA.onclick = function(){
+    					// 6、父级.removeChild(要删除的元素)
+    					oUl.removeChild(this.parentNode);
+    				};
+    				oLi.appendChild(oA);
+    			};
+    		};
+    	</script>
+    </body>
+</html>

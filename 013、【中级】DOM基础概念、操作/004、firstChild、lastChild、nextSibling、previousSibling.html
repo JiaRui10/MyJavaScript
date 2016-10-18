@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="ul1">
+    		<li>11111</li>
+    		<li>22222</li>
+    		<li>33333</li>
+    		<li>44444</li>
+    	</ul>
+    	<script>
+    		window.onload = function(){
+    			var oUl = document.getElementById("ul1");
+
+                // 1、firstChild：只读属性。获取第一个子节点
+                    // 标准下：会包含文本类型的节点
+                    // 非标准下：只包含元素节点
+                alert(oUl.firstChild);
+
+
+                // 2、元素.firstElementChild：只读属性。在标准下获取第一个元素类型的子节点
+                    // 注意：在非标准下不支持该属性
+                var oFirst = oUl.firstElementChild || oUl.firstChild;  // 兼容标准和非标准。存在隐患
+                oFirst.style.background = "red";
+
+
+                // 3、获取第一个元素节点最推荐的写法
+                oUl.children[0].style.background = "red";
+
+
+
+
+
+                // 4、元素.lastChild || 元素.lastElementChild最后一个子节点
+                var oLast = oUl.lastElementChild || oUl.lastChild;
+                oLast.style.background = "yellow";
+
+
+
+                // 5、元素.nextSibling：当前元素的下一个兄弟节点
+                    // 元素.nextSibling || 元素.nextElementSibling
+                var oNext = oFirst.nextElementSibling || oFirst.nextSibling;
+                oNext.style.background = "blue";
+
+
+
+                // 6、元素.previousSibling || 元素.previousElementSibling：上一个兄弟节点
+                var oPrev = oLast.previousElementSibling || oLast.previousSibling;
+                oPrev.style.background = "orange";
+    		};
+    	</script>
+    </body>
+</html>
