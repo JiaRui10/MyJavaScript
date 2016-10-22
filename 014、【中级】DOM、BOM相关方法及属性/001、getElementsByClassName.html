@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<ul id="ul1">
+    		<li class="box">1111111</li>
+    		<li>2222222</li>
+    		<li class="box box2">3333333</li>
+    		<li class="box">4444444</li>
+    	</ul>
+
+
+		<ul id="ul2">
+    		<li class="box">1111111</li>
+    		<li>2222222</li>
+    		<li class="box box2">3333333</li>
+    		<li class="box">4444444</li>
+    	</ul>
+    	<script>
+    		window.onload = function(){
+    			var oUl1 = document.getElementById("ul1");
+    			var oUl2 = document.getElementById("ul2");
+
+
+    			// 获取oUl1中所有包含类box的li
+    			var aLi = getElementsByClassName(oUl1 , "li" , "box");
+
+    			alert(aLi.length);
+    			console.log(aLi);
+
+    			for(var i=0;i<aLi.length;i++){
+    				aLi[i].style.background = "red";
+    			}
+
+    			function getElementsByClassName(parent , tagName , className){
+    				var aEls = parent.getElementsByTagName(tagName);
+    				var arr = [];
+
+    				for(var i=0;i<aEls.length;i++){
+    					// if(aEls[i].className == className){
+    					// 	arr.push(aEls);
+    					// }
+
+    					var aClassName = aEls[i].className.split(" ");
+    					for(var j=0;j<aClassName.length;j++){
+    						if(aClassName[j]==className){
+    							arr.push(aEls[i]);
+    							break;
+    						}
+    					}
+    				}
+    				return arr;
+    			}
+    		};
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<!-- action为提交地址 -->
+    	<form action="http://www.baidu.com/" id="form1">
+    		<input type="text" name="text1">
+    		<input type="submit" name="dosubmit" value="提交">
+
+
+    		<input type="reset" name="soreset" value="重置">
+    	</form>
+    	<script>
+    		window.onload = function(){
+    			var oForm = document.getElementById("form1");
+
+    			// 1、onsubmit：当提交表单的时候触发
+    			oForm.onsubmit = function(){
+    				if(this.text1.value == ""){
+    					alert("请输入内容");
+    					// 如果没有内容，阻止它提交
+    					return false;
+    				}
+    			};
+
+
+    			// 2、submit()方法：提交表单
+    			// setTimeout(function(){
+    			// 	oForm.submit();
+    			// } , 1000);
+
+
+
+    			// 3、重置的相关事件
+    			// onreset：当表单重置的时候触发
+    			oForm.onreset = function(){
+    				// alert("表单被重置了");
+
+    				// 选择对话框
+    				// var re = confirm("你确定要重置？");
+    				// return re;
+    				return confirm("你确定要重置？");
+    			};
+    		};
+    	</script>
+    </body>
+</html>

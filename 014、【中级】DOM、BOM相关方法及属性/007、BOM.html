@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+		<input type="button" value="打开新窗口">
+		<input type="button" value="关闭窗口">
+		<input type="button" value="关闭新窗口">
+
+    	<script>
+    		// 1、BOM：浏览器对象模型
+    		window.onload = function(){
+    			var aInput = document.getElementsByTagName("input");
+
+    			// 3、
+    			var opener = null;
+
+    			aInput[0].onclick = function(){
+    				// 2、open(页面的地址url , 打开的方式)：打开一个新的窗口。由window调用，可省略
+    					// 如果url为空，则默认打开一个空白页面
+    					// 如果打开方式为空，默认为新窗口方式打开
+    						// 返回值：新打开的窗口的window对象
+    				// window.open("http://www.baidu.com/" , "_self");
+
+
+    				// 4、
+    				opener = window.open();
+    				opener.document.body.style.background = "red";
+    			};
+    			// 5、close()方法  关闭窗口
+    			aInput[1].onclick = function(){
+    				window.close();  // 不同浏览器的表现不同。不兼容
+    			};
+
+    			// 6、关闭新打开的页面
+    			aInput[2].onclick = function(){
+    				opener.close();
+    				// 可以关闭在本窗口中通过JS打开的新窗口
+    			};
+    		};
+    	</script>
+    </body>
+</html>

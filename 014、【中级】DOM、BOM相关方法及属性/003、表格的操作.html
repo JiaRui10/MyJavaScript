@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<table id="tab1" width="100%" border="1px">
+    		<thead>
+	    		<tr>
+	    			<th>编号</th>
+	    			<th>姓名</th>
+	    			<th>性别</th>
+	    			<th>操作</th>
+	    		</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+	    			<td>1</td>
+	    			<td>leo</td>
+	    			<td>男</td>
+	    			<td><a href="javascript:;">删除</a></td>
+	    		</tr>
+	    		<tr>
+	    			<td>2</td>
+	    			<td>小马</td>
+	    			<td>男</td>
+	    			<td><a href="javascript:;">删除</a></td>
+	    		</tr>
+    		</tbody>
+    	</table>
+
+    	<script>
+    		window.onload = function(){
+    			var oTab = document.getElementById("tab1");
+
+				// alert(oTab.children[1].children[1].innerHTML);	
+				// 1、运行之后获取不到值。因为在table和tr之间还有一级：tbody
+				// alert(oTab.children[0].children[1].children[1].innerHTML);
+
+
+				// 2、更方便、更直观的方法
+				// 表格中的属性：
+					// tHead：表格头【只有1个】
+					// tBodies：表格正文
+					// tFoot：表格尾【只有1个】
+						// rows：行
+						// cells：列
+
+
+				// 第0个表格正文，第一行，第一列
+				alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+
+    		};
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	
+    	<script>
+    		// 1、属性a：window.navigator.userAgent（浏览器信息）
+    		// alert(window.navigator.userAgent);
+    		// 判断浏览器的类型
+    		if(window.navigator.userAgent.indexOf("MSIE") != -1){
+    			alert("这是IE浏览器");
+    		}else{
+    			alert("不是IE浏览器");
+    		}
+
+
+    		// 2、属性b：window.location（浏览器地址信息）
+    		alert(window.location);  // 不是字符串。是对象。
+    		alert(window.location.href);  // url
+    		alert(window.location.search);  // url？后面的内容
+    		alert(window.location.hash);   // url#后面的内容
+    	</script>
+    </body>
+</html>

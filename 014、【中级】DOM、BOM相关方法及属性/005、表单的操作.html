@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<form action="" id="form1">
+    		<!-- 1、 -->
+    		<input type="text" name="text1" value="内容">
+
+			<!-- 设置相同的name值，让他们属于同一个组 -->
+    		<input type="radio" value="男" name="sex">男
+    		<input type="radio" value="女" name="sex">女
+
+    		<input type="checkbox" name="a" value="html">html
+    		<input type="checkbox" name="a" value="CSS">CSS
+			<input type="checkbox" name="a" value="JavaScript">JavaScript
+
+			<select name="city">
+				<option value="">请选择城市</option>
+				<option value="北京">北京</option>
+				<option value="上海">上海</option>
+			</select>
+
+			<input type="button" value="按钮" name="btn">
+    	</form>
+
+    	<script>
+    		window.onload = function(){
+    			var oForm = document.getElementById("form1");
+    			// 2、通过name获取表单元素
+    			// alert(oForm.text1.value);	
+
+    			// 3、onchange事件：当值发生改变的时候触发
+    				// text：当光标离开的时候如果内容有变化就触发
+    				// radio/checkbox：标准下点击的时候只要值变了那么就会；非标准下焦点离开的时候如果值变了就会触发
+    			oForm.text1.onchange = function(){
+    				alert(this.value);
+    			};
+    			oForm.sex[0].onchange = function(){
+    				// alert("radio的onchange事件被触发了");
+
+    				alert(this.value);
+    			};
+    			oForm.a[0].onchange = function(){
+    				alert(2);
+    			};
+
+    			oForm.city.onchange = function(){
+    				// 取得被selected的值
+    				// alert(oForm.city.value);
+    				alert(this.value);
+    			};
+
+    			oForm.btn.onclick = function(){
+    				// 4、判断当前radio/checkbox是否选中
+    				// alert(oForm.sex[0].checked);
+    				// 点击之后看哪个被选中
+    				// for(var i=0;i<oForm.sex.length;i++){
+    				// 	if(oForm.sex[i].checked){
+    				// 		alert(oForm.sex[i].value+"被选中了...");
+    				// 	}else{
+    				// 		alert(oForm.sex[i].value+"是非选中状态");
+    				// 	}
+    				// }
+
+
+    				// 5、判断checkbox的选中状态。同上
+    				for(var i=0;i<oForm.a.length;i++){
+    					if(oForm.a[i].checked){
+    						alert(oForm.a[i].value+"被选中了...");
+    					}else{
+    						alert(oForm.a[i].value+"是非选中状态");
+    					}
+    				}
+    			};
+    		};
+    	</script>
+    </body>
+</html>

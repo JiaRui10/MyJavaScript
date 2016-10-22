@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body style="height:2000px;">
+		<div id="div1" style="width:100px;height:100px;border:1px solid red;padding:10px;margin:10px;">
+			<div style="width:100px;height:200px;background:blue;"></div>
+		</div>
+
+    	<script>
+    		window.onload = function(){
+    			// 1、可视区的尺寸（整个窗口）：会随着窗口的大小发生改变
+    			// alert(document.documentElement.clientWidth);
+
+    			// 2、滚动条滚动距离：可视区顶部到页面顶部的距离  scrollTop[scrollLeft]
+    			document.onclick = function(){
+    				// alert(document.documentElement.scrollTop);
+
+    				// 火狐浏览器下认为滚动条所属的对象应该是body，所以应该写成下面这样
+    				// alert(document.body.scrollTop);
+
+    				// 处理上面的兼容情况
+    				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    				// alert(scrollTop);
+    			};
+
+
+    			// 3、内容高度：oDiv.scrollHeight(Width)
+    			var oDiv1 = document.getElementById("div1");
+    			// alert(oDiv1.scrollHeight);  // 210
+
+
+    			// 4、文档高度
+    			alert(document.documentElement.offsetHeight);   
+    			alert(document.body.offsetHeight);  // 推荐用下面这种方法
+    		};
+    	</script>
+    </body>
+</html>
