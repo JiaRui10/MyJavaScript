@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	div {
+		padding: 40px;
+	}
+	#div1 {
+		background: red;
+	}
+	#div2 {
+		background: green;
+	}
+	#div3 {
+		background: blue;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<div id="div1">
+    		<div id="div2">
+    			<div id="div3"></div>
+    		</div>
+    	</div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv1 = document.getElementById("div1");
+    			var oDiv2 = document.getElementById("div2");
+    			var oDiv3 = document.getElementById("div3");
+
+    			function fn1(){
+    				alert(this.id);
+    			}
+    			oDiv1.onclick = fn1;   // 事件函数绑定
+    			// oDiv2.onclick = fn1;
+    			oDiv3.onclick = fn1;
+    			// 3、运行。当点击div3的时候，会发现div1和div2也被触发了
+
+
+    			// 4、事件冒泡机制：当一个元素接收到事件的时候，会把它接收到的所有事件传播给它的父级，一直到顶层window。
+
+    		};
+    	</script>
+    </body>
+</html>

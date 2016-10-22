@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#div1 {
+		width: 100px;
+		height: 200px;
+		border: 1px solid red;
+		display: none;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<input type="button" value="按钮" id="btn">
+    	<div id="div1"></div>
+
+    	<script>
+    		window.onload = function(){
+    			var oBtn = document.getElementById("btn");
+    			var oDiv = document.getElementById("div1");
+
+    			oBtn.onclick = function(ev){
+                    // 5、阻止冒泡：在当前要阻止冒泡的事件函数中调用 event.cancelBubble = true;
+                    // 这时就不会传播给父级，【父级document的事件函数就不会执行】
+                    var ev = ev || event;
+                    ev.cancelBubble = true;  // 阻止当前对象的当前事件的冒泡
+
+
+                    oDiv.style.display = "block";
+    			};
+                // 3、加了下面的文档点击函数之后，会发现上面按钮的点击之后没效果了。是因为这时按钮会将它接收到的事件向上传播，而传给document之后会执行下面的函数。因为速度太快，所以看不出效果。
+                document.onclick = function(){
+                    oDiv.style.display = "none";
+
+                    // 4、让document的事件函数延时
+                    // setTimeout(function(){
+                    //     oDiv.style.display = "none";
+                    // } , 1000);
+                };
+
+    		};
+    	</script>
+    </body>
+</html>

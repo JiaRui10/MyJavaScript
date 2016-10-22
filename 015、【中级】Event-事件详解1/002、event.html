@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	
+    	<script>
+    		// 1、event：事件对象。当一个事件发生的时候，和当前这个对象发生的这个事件有关的一些详细的信息都会被临时保存到一个指定地方【event对象】，供我们在需要的时候调用。
+
+    		// 2、事件对象必须在一个事件调用的函数里面使用才有内容
+    		// 事件函数：事件调用的函数。一个函数是不是事件函数，不在定义的时候决定，而是取决于调用的时候
+
+    		// 3、存在兼容：
+    			// a、ie/chrome：event是一个内置全局对象
+    			// alert(event);   // undefined/null：这里没有事件
+    		function fn1(){
+    			alert(event);
+    		}
+    		fn1();   // 不是事件调用的函数，内容为空
+    		document.onclick = fn1;  // 是事件调用的函数，所以event有内容。object MouseEvent
+
+    			// b、firefox、标准下：事件对象是通过事件函数的第一个参数传入
+    			// 如果一个函数是被事件调用的，那么这个函数定义的第一个参数就是事件对象
+    		function fn1(ev){
+    			alert(ev);
+    		}
+    		document.onclick = fn1;
+
+
+
+    		function fn1(ev){
+    			// 4、解决兼容问题
+    			var ev = ev || event;
+    			alert(ev);
+
+
+    			// 5、看一下对象中有什么内容
+    			for(var attr in ev){
+    				console.log(attr + " = " + ev[attr]);
+    			}
+    		}
+    		document.onclick = fn1;
+    	</script>
+    </body>
+</html>

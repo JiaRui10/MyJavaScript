@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#div1 {
+		width: 100px;
+		height: 200px;
+		background: red;
+		position: absolute;
+		left: -100px;
+		top: 100px;
+	}
+	#div2 {
+		width: 30px;
+		height: 60px;
+		position: absolute;
+		right: -30px;
+		top: 70px;
+		background: black;
+		color: white;
+		text-align: center;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<div id="div1">
+    		<div id="div2">分享到</div>
+    	</div>
+
+    	<script>
+    		window.onload = function(){
+    			// 3、利用冒泡机制，这里只需要处理div1即可
+    			var oDiv = document.getElementById("div1");
+
+    			// div2接收事件之后，自己不处理，而是传播给div1处理
+    			oDiv.onmouseover = function(){
+    				this.style.left = "0px";
+    			};
+    			oDiv.onmouseout = function(){
+    				this.style.left = "-100px";
+    			};
+    		};
+    	</script>
+    </body>
+</html>
