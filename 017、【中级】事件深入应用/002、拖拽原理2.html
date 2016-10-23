@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	#div1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+	}
+</style>
+</head>
+    <body>
+        <!-- 1 -->
+        测试文字
+    	<div id="div1"></div>
+
+    	<script>
+    		window.onload = function(){
+
+                // 2、拖拽的时候，如果有文字被选中，会产生问题
+                    // 原因：当鼠标按下的时候，如果页面中有文字被选中，会触发浏览器默认拖拽文字的效果
+                        // 解决：a标准：阻止默认行为
+                            // b、非标准IE：全局捕获
+                // 拖拽图片也有这种问题，解决方法同上。
+
+    			var oDiv = document.getElementById("div1");
+
+    			oDiv.onmousedown = function(ev){
+
+    				var ev = ev || event;
+
+    				var disX = ev.clientX - this.offsetLeft;
+    				var disY = ev.clientY - this.offsetTop;
+
+                    // 4、兼容IE的全局捕获
+                    if(oDiv.setCapture){
+                        oDiv.setCapture();
+                    }
+                    // oDiv把所有事件完全拉到自己身上
+
+
+    				// oDiv.onmousemove = function(ev){
+    				document.onmousemove = function(ev){
+
+    					var ev = ev || event;
+
+    					oDiv.style.left = ev.clientX - disX + "px";
+    					oDiv.style.top = ev.clientY - disY + "px";
+
+    				};
+
+                    document.onmouseup = function(){
+                        document.onmousemove = document.onmouseup = null;
+
+                        // 5、释放全局捕获
+                        if(oDiv.releaseCapture){
+                            oDiv.releaseCapture();
+                        }
+                    };     
+    			     // 3、阻止默认行为
+                    return false;
+                };
+    			
+
+    		};
+    	</script>
+    </body>
+</html>
