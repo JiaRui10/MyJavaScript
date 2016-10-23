@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、cookie：存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据
+    			// a、不同浏览器存放的cookie位置不一样，也是不能通用的
+    			// b、cookie的存储是以域名形式进行区分的
+    			// c、cookie的数据可以设置名字的 
+    			// d、一个域名下存放的cookie的个数是有限制的，不同浏览器存放的个数不一样
+    			// e、每个cookie存放的内容大小也是有限制的，不同浏览器存放的大小不一样
+
+    		document.cookie = "username=leo";
+    		document.cookie = "age=32";
+    		// 2、运行。然后查看浏览器的cookie，会看到一个没有命名的空文件夹，即本地cookie
+
+    		// 3、读取cookie。火狐可以，其他不行，因为不允许本地去操作cookie。不过都是操作存放在服务器上的cookie
+    		alert(document.cookie);  // username=leo; age=32
+
+    		// 4、我们通过document.cookie来获取当前网站下的cookie的时候，得到的字符串形式的值，他们包含了当前网站下所有的cookie。他会把所有的cookie通过一个分号+空格的形式串联起来。
+
+    		// 5、如果想长时间存放一个cookie。需要在设置这个cookie的时候同时给他设置一个过期的时间。
+    		// cookie默认是临时存储的，当浏览器关闭进程的时候自动销毁
+    		var oDate = new Date();
+    		oDate.setDate(oDate.getDate() + 5);   // 5天后
+    		document.cookie = "username=leo;expires=" + oDate.toGMTString();  // 注意后面加的时候必须是字符串形式的
+
+
+
+    		// 6、内容最好编码存放，encodeURI
+    		document.cookie = "username=" + encodeURI("leo\n你好") + ";expires=" + oDate.toGMTString();
+    		alert(decodeURI(document.cookie));  // 解码读取
+
+
+    		// 7、读取里面单独的东西，如username
+    		function getCookie(key){
+    			var arr1 = document.cookie.split("; ");
+    			for(var i=0;i<arr1.length;i++){
+    				var arr2 = arr1[i].split("=");
+    				if(arr2[0] == key){
+    					return decodeURI(arr2[1]);
+    				}
+    			}
+    		}
+    		alert(getCookie("username"));
+
+    		// 8、其他封装
+    		function setCookie(key , value , t){
+    			var oDate = new Date();
+    			oDate.setDate(oDate.getDate() + t);
+    			document.cookie = key + "=" + value + ";expires=" + oDate.toGMTString();
+    		}
+    		setCookie("sex" , "男" , 10);
+
+    		function removeCookie(key){
+    			setCookie(key , "" , -1);
+    		}
+    		removeCookie("username");
+    		removeCookie("age");
+    		removeCookie("sex");
+    	</script>
+    </body>
+</html>

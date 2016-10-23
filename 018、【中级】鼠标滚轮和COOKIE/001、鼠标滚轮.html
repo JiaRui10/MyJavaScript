@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#div1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+</style>
+</head>
+    <body style="height:2000px;">
+    	<!-- 1 -->
+    	<div id="div1"></div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv = document.getElementById("div1");
+
+    			// 3、鼠标滚轮事件。
+    			// IE/Chrome：onmousewheel
+    						// event.wheelDelta
+    							// 上：120；下：-120
+    			// firefox：DOMMouseScroll  必须用addEventListener绑定
+    						// event.detail
+    							// 上：-3；下：3
+    			oDiv.onmousewheel = fn;
+
+    			if(oDiv.addEventListener){
+    				oDiv.addEventListener("DOMMouseScroll" , fn , false);
+    			}
+
+    			function fn(ev){
+    				// alert(1);
+
+    				// 4、鼠标滚动方向：
+    				var ev = ev || event;
+    				// 做兼容
+    				var b = true;
+    				if(ev.wheelDelta){
+    					b = ev.wheelDelta>0?true:false;
+    				}else{
+    					b = ev.detail<0?true:false;
+    				}
+
+    				if(b){
+    					this.style.height = this.offsetHeight - 10 + "px";
+    				}else{
+    					this.style.height = this.offsetHeight + 10 + "px";
+    				}
+
+    				// 6、阻止默认行为不是根据事件来判断的，而是根据事件的绑定形式
+    				if(ev.preventDefault){
+    					ev.preventDefault();
+    				}
+
+    				// 5、阻止自带滚动条默认行为的发生
+    				// 注意只能阻止：obj.on事件名称=fn 所触发的默认行为
+    				// addEventListener绑定的事件需要通过event下面的preventDefalut()方法来阻止
+    				return false;
+    			}
+    		};
+    	</script>
+    </body>
+</html>
