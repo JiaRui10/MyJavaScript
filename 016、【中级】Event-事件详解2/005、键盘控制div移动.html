@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	/*2*/
+	#div1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+	}
+</style>
+</head>
+    <body>
+    	<!-- 1 -->
+    	<div id="div1"></div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv = document.getElementById("div1");
+
+    			// 不是所有元素都能够接收键盘事件的，所以不要这么写：oDiv.onkeydown。能够响应用户输入的元素，能够接收焦点的元素就能够接收键盘事件
+
+    			// onkeydown：如果按下不抬起，会连续触发
+    			// 刚按下去的时候会先顿一下，可用定时器解决
+
+    			document.onkeydown = function(ev){
+    				var ev = ev || event;
+
+    				switch(ev.keyCode){
+    					// 【左上右下】
+    					case 37:
+    						oDiv.style.left = oDiv.offsetLeft - 10 + "px";
+    						break;
+    					case 38:
+    						oDiv.style.top = oDiv.offsetTop - 10 + "px";
+    						break;
+    					case 39:
+    						oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+    						break;
+    					case 40:
+    						oDiv.style.top = oDiv.offsetTop + 10 + "px";
+    						break;
+    				}
+    			};
+    		};
+    	</script>
+    </body>
+</html>

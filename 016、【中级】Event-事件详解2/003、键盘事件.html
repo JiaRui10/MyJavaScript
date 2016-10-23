@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、onkeydown：当键盘按键按下的时候触发
+    		// onkeyup：当键盘按钮抬起的时候触发
+
+    		// event.keyCode：数字类型，键盘按钮的值，键值
+    		// ctrlKey，shiftKey，altKey 布尔值：当一个事件发生的时候，如果ctrl || shift || alt是按下的状态，返回true，否则返回false
+
+    		document.onkeydown = function(ev){
+    			// 2、
+    			// var ev = ev || event;
+    			// alert(ev.keyCode);
+    		};
+
+    		// 3、运行，但直接点击鼠标，再按住Ctrl重新点击
+    		document.onclick = function(ev){
+    			var ev = ev || event;
+    			alert(ev.ctrlKey);
+    		};
+    		// 运用：按钮Ctrl进行多选
+    	</script>
+    </body>
+</html>

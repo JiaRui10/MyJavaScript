@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+<style>
+	div {
+		padding: 40px;
+	}
+	#div1 {
+		background: red;
+	}
+	#div2 {
+		background: green;
+	}
+	#div3 {
+		background: blue;
+	}
+</style>
+</head>
+    <body>
+    	<div id="div1">
+    		<div id="div2">
+    			<div id="div3"></div>
+    		</div>
+    	</div>
+
+    	<script>
+    		window.onload = function(){
+    			var oDiv1 = document.getElementById("div1");
+    			var oDiv2 = document.getElementById("div2");
+    			var oDiv3 = document.getElementById("div3");
+
+    			function fn1(){
+    				alert(this.id);
+    			}
+    			// oDiv1.onclick = fn1;  
+    			// oDiv2.onclick = fn1;
+    			// oDiv3.onclick = fn1;
+
+                // 1、false = 冒泡：告诉div1，如果有一个出去的事件触发了你，你就去执行fn1这个函数。【从内往外】
+                // oDiv1.addEventListener("click" , fn1 , false);
+                // oDiv2.addEventListener("click" , fn1 , false);
+                // oDiv3.addEventListener("click" , fn1 , false);
+                // 2、运行发现效果跟上面注释部分一样：3 2 1
+
+
+                // 3、捕获：告诉div1，如果有一个进去的事件触发了你，你就去执行fn1这个函数。【从外往内】
+                // oDiv1.addEventListener("click" , fn1 , true);
+                // oDiv2.addEventListener("click" , fn1 , true);
+                // oDiv3.addEventListener("click" , fn1 , true);
+                // 运行效果跟冒泡相反。先往外弹:1 2 3
+
+
+
+                // 4、运行结果：3 2 1
+                oDiv1.addEventListener("click" , function(){
+                    alert(1);
+                } , false);
+                oDiv2.addEventListener("click" , function(){
+                    alert(3);
+                } , true);
+                oDiv3.addEventListener("click" , function(){
+                    alert(2);
+                } , false);
+    		};
+    	</script>
+    </body>
+</html>

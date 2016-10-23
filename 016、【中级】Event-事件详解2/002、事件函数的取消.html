@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<script>
+    		// 1、第一种事件绑定形式的取消：赋值为null
+    		function fn1(){
+    			alert(1);
+    		}
+    		function fn2(){
+    			alert(2);
+    		}
+    		document.onclick = fn1;
+    		document.onclick = null;
+
+
+    		// 2、第二种事件绑定形式的取消
+    		// a、IE下：obj.detachEvent(事件名称,事件函数)
+    		document.attachEvent("onclick" , fn1);
+    		document.attachEvent("onclick" , fn2);
+    		document.detachEvent("onclick" , fn1);
+    		// b、标准下：obj.removeEventListener(事件名称,事件函数,是否捕获)
+    		document.addEventListener("click" , fn1 , false);
+    		document.addEventListener("click" , fn1 , true);
+    		document.addEventListener("click" , fn2 , false);
+    		document.removeEventListener("click" , fn1 , false);
+    	</script>
+    </body>
+</html>

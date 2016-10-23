@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="小庄 http://github.com/JiaRui10" />
+<title>新建网页</title>
+</head>
+    <body>
+    	<input type="text" id="text1">
+    	<ul id="ul1"></ul>
+
+    	<script>
+    		window.onload = function(){
+    			var oText = document.getElementById("text1");
+    			var oUl = document.getElementById("ul1");
+    			oText.onkeyup = function(ev){
+
+    				var ev = ev || event;
+
+    				if(this.value != ""){
+
+    					// 判断是否按了Ctrl+回车
+    					// if(ev.keyCode == 13 && ev.ctrlKey)
+    					// 判断是否敲了回车键
+    					if(ev.keyCode == 13){
+
+	    					var oLi = document.createElement("li");
+	    					oLi.innerHTML = this.value;
+	    					if(oUl.children[0]){
+	    						oUl.insertBefore(oLi , oUl.children[0]);
+	    					}else{
+	    						oUl.appendChild(oLi);
+	    					}
+    					}
+    				}
+    			};
+    		};
+    	</script>
+    </body>
+</html>
